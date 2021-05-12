@@ -13,33 +13,13 @@
 
     <!-- bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-    <!-- font awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-
 </head>
 
 <body>
-    <!-- barra informativa -->
-    <div class="barra-informativa d-flex justify-content-around">
-        <span>
-            <i class="fas fa-map-marked-alt"></i> Avenida Alcade Lavadores Nº143
-        </span>
-        <span>
-            <i class="fas fa-clock"></i> Lunes a viernes 10h-20h
-        </span>
-        <span>
-            Contacto:
-            <i class="fab fa-whatsapp-square"></i>
-            <i class="fas fa-phone-square-alt"></i>
-            <i class="fas fa-envelope-square"></i>
-        </span>
-    </div>
-
-    <!-- navbar -->
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <a class="navbar-brand" href="#">Logo</a>
-        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -60,23 +40,12 @@
                     <a class="nav-link" href="#">Contacto</a>
                 </li>
             </ul>
-
-            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <i class="fas fa-shopping-cart fa-2x"></i>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Mi cuenta</a>
-                </li>
-            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>                
+            </form>
         </div>
     </nav>
-
-    <!-- foto -->
-    
-
-    <a href=""><img src="https://via.placeholder.com/1920"></a>
-    
 </body>
 
 </html>
