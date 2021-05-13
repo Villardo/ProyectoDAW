@@ -11,11 +11,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
-    <!-- bootstrap icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
     <!-- font awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/estilos.css">
 
 </head>
 
@@ -23,16 +23,16 @@
     <!-- barra informativa -->
     <div class="barra-informativa d-flex justify-content-around">
         <span>
-            <i class="fas fa-map-marked-alt"></i> Avenida Alcade Lavadores Nº143
+            <a href=""><i class="fas fa-map-marked-alt"></i></a> Avenida Alcade Lavadores Nº143
         </span>
         <span>
-            <i class="fas fa-clock"></i> Lunes a viernes 10h-20h
+            <a href="javascript:void(0);"><i class="fas fa-clock"></i></a> Lunes a viernes 10h-20h
         </span>
         <span>
             Contacto:
-            <i class="fab fa-whatsapp-square"></i>
-            <i class="fas fa-phone-square-alt"></i>
-            <i class="fas fa-envelope-square"></i>
+            <a href=""><i class="fab fa-whatsapp-square"></i></a>
+            <a href=""><i class="fas fa-phone-square-alt"></i></a>
+            <a href=""><i class="fas fa-envelope-square"></i></a>
         </span>
     </div>
 
@@ -48,22 +48,22 @@
                     <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sobre mi</a>
+                    <a class="nav-link" href="sobre-mi.php">Sobre mi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Servicios</a>
+                    <a class="nav-link" href="servicios.php">Servicios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Productos</a>
+                    <a class="nav-link" href="productos.php">Productos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contacto</a>
+                    <a class="nav-link" href="contactos.php">Contacto</a>
                 </li>
             </ul>
 
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <i class="fas fa-shopping-cart fa-2x"></i>
+                    <a href=""><i class="fas fa-shopping-cart fa-2x"></i></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Mi cuenta</a>
@@ -72,11 +72,32 @@
         </div>
     </nav>
 
-    <!-- foto -->
-    
+    <!-- imagen -->
+    <div>
+        <img src="images/foto1.jpg" class="imagen-completa">
+    </div>
 
-    <a href=""><img src="https://via.placeholder.com/1920"></a>
-    
+    <!-- footer -->
+    <footer class="page-footer font-small blue pt-4">
+        <div class="container-fluid text-center">
+            <div class="col mt-3">
+                <p>Avenida Alcade Lavadores Nº143<br>
+                    Lunes a viernes 10h-20h<br>
+                    <span>
+                        Contacto:
+                        <a href=""><i class="fab fa-whatsapp-square"></i></a>
+                        <a href=""><i class="fas fa-phone-square-alt"></i></a>
+                        <a href=""><i class="fas fa-envelope-square"></i></a>
+                    </span><br>
+                </p>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="https://github.com/Villardo"> Ghub/Villardo</a>
+        </div>
+    </footer>
+
 </body>
 
 </html>
