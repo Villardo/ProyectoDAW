@@ -13,9 +13,16 @@
 
     <!-- bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    
+    <!-- font awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
+    <!-- navbar -->
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <a class="navbar-brand" href="#">Logo</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,10 +46,22 @@
                     <a class="nav-link" href="contactos.php">Contacto</a>
                 </li>
             </ul>
+
+            <!-- buscador -->
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
             </form>
+
+            <!-- cuenta -->
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a href=""><i class="fas fa-shopping-cart fa-2x"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mi cuenta</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
