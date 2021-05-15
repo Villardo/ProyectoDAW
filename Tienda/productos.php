@@ -43,7 +43,7 @@
                     <a class="nav-link" href="#">Productos <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contactos.php">Contacto</a>
+                    <a class="nav-link" href="contacto.php">Contacto</a>
                 </li>
             </ul>
 
@@ -64,6 +64,71 @@
             </ul>
         </div>
     </nav>
+
+
+    <!-- contenido (mostrar todos con paginacion y con AJAX mostrar los de la busqueda) -->
+    <?php
+        $numRegistros = 8; 
+        $pagina = 1; 
+
+        if (array_key_exists('pag', $_GET)) {
+            $pagina = $_GET['pag'];
+        }
+
+        require_once('conectarBD.php');
+
+        $res_query = mysqli_query(
+            $db,
+            "SELECT * FROM receta"
+        );
+        $total_registros = mysqli_num_rows($res_query);
+
+        $totalPaginas = ceil($total_registros / $numRegistros);
+
+        $res_query = mysqli_query(
+            $db,
+            "SELECT receta.nombre as receta, chef.nombre as chef, receta.codigo as codigo 
+                FROM receta 
+                INNER JOIN chef ON (receta.cod_chef = chef.codigo)
+                LIMIT " . (($pagina - 1) * $numRegistros) . ", $numRegistros "
+        );
+        echo '<div class="container" id="fondo">';
+            echo '<div class="row">';
+                echo '<table class="table bg-white table-bordered mt-5" style="width:100%">';
+                echo '<th colspan=3 class="table-dark text-light text-center">'; 
+                    echo '<h1>RECETAS</h1>';
+                echo '</th>';
+                    echo '<tr class="table-success font-weight-bold">';             
+                        echo '<td>RECETA</td>';         
+                        echo '<td colspan=2>CHEF</td>';            
+                        
+                    echo '</tr>';
+                
+                while ($row = mysqli_fetch_array($res_query)) {
+                    echo '<tr>';
+                        echo '<td>' . $row['receta'] . '</td>';
+                        echo '<td>' . $row['chef'] . '</td>';
+                        echo '<td> <a href="fichaReceta.php?receta='.$row['codigo'].'">Mas información</a> </td>';
+                    echo '</tr>';
+                }                
+                echo '</table>';              
+            echo '</div>';
+
+            echo '<nav aria-label="Page navigation example">';
+                echo '<ul class="pagination justify-content-center">';
+                    for ($i = 0; $i < $totalPaginas; $i++) {
+                        if(($i + 1)== $pagina){
+                            echo '<li class="page-item active"><a class="page-link" href="listadoRecetas.php?pag=' . ($i + 1) . '">'. ($i + 1) .'</a></li>';                       
+                        }else{
+                            echo '<li class="page-item"><a class="page-link" href="listadoRecetas.php?pag=' . ($i + 1) . '">'. ($i + 1) .'</a></li>';                       
+                        }
+                    }                    
+                echo '</ul>';
+            echo '</nav>';
+        echo '</div>';
+        ?>
+
+
 
     <!-- footer -->
     <footer class="page-footer font-small blue pt-4">
