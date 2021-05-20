@@ -21,7 +21,7 @@
         <div class="form-group">
             <label class="form-check-label"><input type="checkbox"> Recuérdame</label>
         </div>
-        <button type="submit" class="btn btn-primary">Iniciar sesiñon</button>
+        <button type="submit" class="btn btn-primary">Iniciar sesion</button>
     </form>
 
 </body>
