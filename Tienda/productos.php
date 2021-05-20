@@ -87,31 +87,23 @@
 
         $res_query = mysqli_query(
             $db,
-            "SELECT producto_id,producto_nombre,producto_descripcion,producto_precio FROM `productos` WHERE 1
+            "SELECT producto_id, producto_nombre, producto_descripcion, producto_precio, producto_ruta 
+            FROM `productos` WHERE 1
                 LIMIT " . (($pagina - 1) * $numRegistros) . ", $numRegistros "
         );
-        echo '<div class="container" id="fondo">';
-            echo '<div class="row">';
-                echo '<table class="table bg-white table-bordered mt-5" style="width:100%">';
-                echo '<th colspan=3 class="table-dark text-light text-center">'; 
-                    echo '<h1>PRODUCTOS</h1>';
-                echo '</th>';
-                    echo '<tr class="table-success font-weight-bold">';             
-                        echo '<td>PRODUCTO</td>';         
-                        echo '<td colspan=2>TEST</td>';            
-                        
-                    echo '</tr>';
-                
-                while ($row = mysqli_fetch_array($res_query)) {
-                    echo '<tr>';
-                        echo '<td>' . $row['producto_nombre'] . '</td>';
-                        echo '<td>' . $row['producto_descripcion'] . '</td>';
-                        echo '<td>' . $row['producto_precio'] . '€</td>';
-                        echo '<td> <a href="fichaReceta.php?receta='.$row['producto_id'].'">Mas información</a> </td>';
-                    echo '</tr>';
-                }                
-                echo '</table>';              
-            echo '</div>';
+        echo '<div class="container">';           
+            while ($row = mysqli_fetch_array($res_query)) {
+                echo '<div class="card col-12 col-sm-6 col-md-4" style="width: 18rem;">';
+                    echo '<div class="card-body">';
+                        echo '<h5 class="card-title">'.$row['producto_nombre'].'</h5>';
+                        echo '<img class="card-img-top" src="'.$row['producto_ruta'].'" alt="'.$row['producto_nombre'].'">';
+                        echo '<h6 class="card-subtitle mb-2 text-muted">'.$row['producto_precio'] . '€'.'</h6>';
+                        echo '<p class="card-text">'.$row['producto_descripcion'].'</p>';
+                        echo '<a href="#" class="card-link mr-5"><i class="fas fa-cart-plus"></i></a>';
+                        echo '<a href="fichaProducto.php?producto='.$row['producto_id'].'"><i class="fas fa-info"></i></a> </td>';
+                    echo '</div>';
+                echo '</div>';
+            }
 
             echo '<nav aria-label="Page navigation example">';
                 echo '<ul class="pagination justify-content-center">';
@@ -128,6 +120,16 @@
         ?>
 
 
+    <!-- <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">$row['producto_nombre']</h5>
+            <h6 class="card-subtitle mb-2 text-muted">$row['producto_precio'] . '€'</h6>
+            <p class="card-text">$row['producto_descripcion'].</p>
+            <a href="#" class="card-link">Añadir a la cesta</a>
+            <a href="#" class="card-link">Mas información</a>
+        </div>
+    </div> -->
+
 
     <!-- footer -->
     <footer class="page-footer font-small blue pt-4">
@@ -136,6 +138,7 @@
                 <p>Avenida Alcade Lavadores Nº143<br>
                     Lunes a viernes 10h-20h<br>
                     <span>
+                    <img src="images/productos/producto1_imagen.png" alt="">
                         Contacto:
                         <a href=""><i class="fab fa-whatsapp-square"></i></a>
                         <a href=""><i class="fas fa-phone-square-alt"></i></a>

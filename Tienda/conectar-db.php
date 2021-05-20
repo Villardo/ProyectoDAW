@@ -13,6 +13,7 @@ $dbname = "centro_estetica";
 $db = mysqli_connect($servername, $username, $password, $dbname);
 $db->set_charset("utf8");
 
+
 // TODO PDO
 
 // try {
