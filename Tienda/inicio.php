@@ -72,7 +72,7 @@
                         Mi cuenta
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbar-cuenta">
-                        <a class="dropdown-item" href="#">Log in/out</a>
+                        <a class="dropdown-item" href="iniciar-sesion.php">Log in/out</a>
                         <a class="dropdown-item" href="registro.php">Registrarse</a>
                     </div>
                 </li>
