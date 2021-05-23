@@ -68,7 +68,7 @@
 
     <!-- contenido (mostrar todos con paginacion y con AJAX mostrar los de la busqueda) -->
     <?php
-        $numRegistros = 3; 
+        $numRegistros = 6; 
         $pagina = 1; 
 
         if (array_key_exists('pag', $_GET)) {
@@ -91,9 +91,9 @@
             FROM `productos` WHERE 1
                 LIMIT " . (($pagina - 1) * $numRegistros) . ", $numRegistros "
         );
-        echo '<div class="container">';           
+        echo '<div class="container productos">';           
             while ($row = mysqli_fetch_array($res_query)) {
-                echo '<div class="card col-12 col-sm-6 col-md-4" style="width: 18rem;">';
+                echo '<div class="card" style="width: 18rem;">';
                     echo '<div class="card-body">';
                         echo '<h5 class="card-title">'.$row['producto_nombre'].'</h5>';
                         echo '<img class="card-img-top" src="'.$row['producto_ruta'].'" alt="'.$row['producto_nombre'].'">';
@@ -104,9 +104,9 @@
                     echo '</div>';
                 echo '</div>';
             }
-
+        echo '</div>';
             echo '<nav aria-label="Page navigation example">';
-                echo '<ul class="pagination justify-content-center">';
+                echo '<ul class="pagination justify-content-center mt-3">';
                     for ($i = 0; $i < $totalPaginas; $i++) {
                         if(($i + 1)== $pagina){
                             echo '<li class="page-item active"><a class="page-link" href="productos.php?pag=' . ($i + 1) . '">'. ($i + 1) .'</a></li>';                       
@@ -116,19 +116,8 @@
                     }                    
                 echo '</ul>';
             echo '</nav>';
-        echo '</div>';
+        
         ?>
-
-
-    <!-- <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">$row['producto_nombre']</h5>
-            <h6 class="card-subtitle mb-2 text-muted">$row['producto_precio'] . '€'</h6>
-            <p class="card-text">$row['producto_descripcion'].</p>
-            <a href="#" class="card-link">Añadir a la cesta</a>
-            <a href="#" class="card-link">Mas información</a>
-        </div>
-    </div> -->
 
 
     <!-- footer -->
@@ -138,7 +127,7 @@
                 <p>Avenida Alcade Lavadores Nº143<br>
                     Lunes a viernes 10h-20h<br>
                     <span>
-                    <img src="images/productos/producto1_imagen.png" alt="">
+                    
                         Contacto:
                         <a href=""><i class="fab fa-whatsapp-square"></i></a>
                         <a href=""><i class="fas fa-phone-square-alt"></i></a>
