@@ -22,22 +22,16 @@
 
     require_once('conectar-db.php');
 
-    $res_query = mysqli_query(
-        $db,
-        "SELECT * FROM productos"
-    );
-    $total_registros = mysqli_num_rows($res_query);
-
+    $total_registros = $pdo->query('SELECT count(*) from productos')->fetchColumn(); 
     $totalPaginas = ceil($total_registros / $numRegistros);
 
-    $res_query = mysqli_query(
-        $db,
-        "SELECT producto_id, producto_nombre, producto_descripcion, producto_precio, producto_ruta 
-            FROM `productos` WHERE 1
-                LIMIT " . (($pagina - 1) * $numRegistros) . ", $numRegistros "
-    );
+
+    $sql = "SELECT producto_id, producto_nombre, producto_descripcion, producto_precio, producto_ruta 
+                FROM `productos` WHERE 1
+                    LIMIT " . (($pagina - 1) * $numRegistros) . ", $numRegistros ";
+
     echo '<div class="container productos">';
-    while ($row = mysqli_fetch_array($res_query)) {
+    foreach ($pdo->query($sql) as $row) {
         echo '<div class="card" style="width: 18rem;">';
         echo '<div class="card-body">';
         echo '<h5 class="card-title">' . $row['producto_nombre'] . '</h5>';
@@ -49,6 +43,7 @@
         echo '</div>';
         echo '</div>';
     }
+
     echo '</div>';
     echo '<nav aria-label="Page navigation example">';
     echo '<ul class="pagination justify-content-center mt-3">';

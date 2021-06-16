@@ -10,17 +10,11 @@ $username = "cliente";
 $password = "cliente_password";
 $dbname = "centro_estetica";
 
-$db = mysqli_connect($servername, $username, $password, $dbname);
-$db->set_charset("utf8");
-
-
-// TODO PDO
-
-// try {
-//     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-//     // set the PDO error mode to exception
-//     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//     echo "Connected successfully";
-// } catch (PDOException $e) {
-//     echo "Connection failed: " . $e->getMessage();
-// }
+ try {
+     $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+     // set the PDO error mode to exception
+     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+     echo "Conectado a la base de datos correctamente";
+ } catch (PDOException $e) {
+     echo "La conexión ha fallado: " . $e->getMessage();
+ }
