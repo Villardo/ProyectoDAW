@@ -10,7 +10,6 @@
 
 <body>
     <?php include 'navbar.php' ?>
-
     <!-- contenido (mostrar todos con paginacion y con AJAX mostrar los de la busqueda) -->
     <?php
     $numRegistros = 6;
@@ -22,7 +21,7 @@
 
     require_once('conectar-db.php');
 
-    $total_registros = $pdo->query('SELECT count(*) from productos')->fetchColumn(); 
+    $total_registros = $pdo->query('SELECT count(*) from productos')->fetchColumn();
     $totalPaginas = ceil($total_registros / $numRegistros);
 
 
@@ -30,7 +29,7 @@
                 FROM `productos` WHERE 1
                     LIMIT " . (($pagina - 1) * $numRegistros) . ", $numRegistros ";
 
-    echo '<div class="container productos">';
+    echo '<div class="container productos mt-3">';
     foreach ($pdo->query($sql) as $row) {
         echo '<div class="card" style="width: 18rem;">';
         echo '<div class="card-body">';
