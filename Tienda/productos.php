@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <?php include 'infobar.php' ?>
     <?php include 'navbar.php' ?>
     <!-- contenido (mostrar todos con paginacion y con AJAX mostrar los de la busqueda) -->
     <?php

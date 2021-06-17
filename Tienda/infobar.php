@@ -3,18 +3,39 @@
 <?php
 include 'variables.php';
 
-echo '<div class="barra-informativa d-flex justify-content-around">';
-    echo '<span>';
-        echo '<a href=""><i class="fas fa-map-marked-alt"></i></a> '.$localizacion;
-    echo '</span>';
-    echo '<span>';
-        echo '<a href="javascript:void(0);"><i class="fas fa-clock"></i></a> '.$horario;
-    echo '</span>';
-    echo '<span>';
-        echo 'Contacto:';
-        echo'<a href="'.$whatsapp.'"><i class="fab fa-whatsapp-square"></i></a>';
-        echo'<a href="'.$telefono.'"><i class="fas fa-phone-square-alt"></i></a>';
-        echo'<a href="'.$email.'"><i class="fas fa-envelope-square"></i></a>';
-    echo '</span>';
-echo '</div>';
+// echo '<div class="barra-informativa d-flex justify-content-around">';
+//     echo '<span>';
+//         echo '<a href=""><i class="fas fa-map-marked-alt"></i></a> '.$localizacion;
+//     echo '</span>';
+//     echo '<span>';
+//         echo '<a href="javascript:void(0);"><i class="fas fa-clock"></i></a> '.$horario;
+//     echo '</span>';
+//     echo '<span>';
+//         echo 'Contacto:';
+//         echo'<a href="'.$whatsapp.'"><i class="fab fa-whatsapp-square"></i></a>';
+//         echo'<a href="'.$telefono.'"><i class="fas fa-phone-square-alt"></i></a>';
+//         echo'<a href="'.$email.'"><i class="fas fa-envelope-square"></i></a>';
+//     echo '</span>';
+// echo '</div>';
+
+
+echo '<div class="barra-informativa">';
+    echo '<div class="row text-center">';
+        echo '<div class="col-md-4">
+            <span><a href=""><i class="fas fa-map-marked-alt" id="map"></i></a> '.$localizacion.'</span>
+        </div>';
+        echo '<div class="col-md-4">
+            <span><a href="javascript:void(0);"><i class="fas fa-clock"></i></a> '.$horario.'</span>
+        </div>';
+        echo '<div class="col-md-4">
+            <span>
+                Contacto:
+                <a href="#"><i class="fab fa-whatsapp-square" id="whatsapp"></i></a>
+                <a href="#"><i class="fas fa-phone-square-alt" id="telefono"></i></a>
+                <a href="#"><i class="fas fa-envelope-square" id="email"></i></a>
+            </span>
+        </div>';
+    echo '</div>';
+
+echo '<script type="text/javascript" src="js/infobar.js"></script>';
 ?>

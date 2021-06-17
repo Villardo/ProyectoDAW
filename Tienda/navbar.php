@@ -3,6 +3,8 @@
 <?php
 include 'variables.php';
 
+echo '<script type="text/javascript" src="js/navbar.js"></script>';
+
 echo '<nav class="navbar navbar-expand-sm navbar-light bg-light">';
     echo '<a class="navbar-brand" href="#">'.$logo_ruta.'</a>';
     echo '<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">';
@@ -10,9 +12,9 @@ echo '<nav class="navbar navbar-expand-sm navbar-light bg-light">';
     echo '</button>';
     echo '<div class="collapse navbar-collapse" id="collapsibleNavId">';
         echo '<ul class="navbar-nav mr-auto mt-2 mt-lg-0">';
-            echo '<li class="nav-item active">';
-            //TODO Cambiar span class (selecciona que class esta activa)
-                echo '<a class="nav-link" href="#">'.$texto_navbar_inicio.' <span class="sr-only">(current)</span></a>';
+        //TODO Cambiar span class (selecciona que class esta activa)
+            echo '<li class="nav-item">';
+                echo '<a class="nav-link" href="inicio.php">'.$texto_navbar_inicio.'</a>';
             echo '</li>';
             echo '<li class="nav-item">';
                 echo '<a class="nav-link" href="sobre-mi.php">'.$texto_navbar_sobre_mi.'</a>';

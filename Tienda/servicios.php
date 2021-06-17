@@ -22,12 +22,12 @@
         echo '<div class="row servicio mt-3" id="servicio_'.$row['servicio_id'].'">';
        
         if ($row['servicio_ruta']!=null && !empty($row['servicio_ruta'])) {
-            echo '<div class="col-8">';
+            echo '<div class="col-md-8 col-sm-6">';
                 echo '<p class="titulo">'.$row['servicio_nombre'].'</p>';
                 echo '<p>'.$row['servicio_descripcion'].'</p>';
             echo '</div>';
-            echo '<div class="col-4">';
-                echo '<img class="img-fluid imagen-servicio" src="'.$row['servicio_ruta'].'">';                
+            echo '<div class="col-md-4 col-sm-6">';
+                echo '<img class="img-fluid rounded imagen-servicio" src="'.$row['servicio_ruta'].'">';                
             echo '</div>';
         }else{
             echo '<div class="col-12">';

@@ -25,4 +25,5 @@
 
 .imagen-servicio {
     vertical-align: middle;
+    border: 0.1rem solid black;
 }
