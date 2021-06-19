@@ -1,3 +1,5 @@
+//TODO Introducir valores en variables
+
 let latitud = 42.2133932810003;
 let longitud = -8.692993569571495;
 let establecimiento = "colegio+montecastelo";

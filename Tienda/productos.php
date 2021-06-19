@@ -32,15 +32,14 @@
 
     echo '<div class="container productos mt-3">';
     foreach ($pdo->query($sql) as $row) {
-        echo '<div class="card" style="width: 18rem;">';
-        echo '<div class="card-body">';
-        echo '<h5 class="card-title">' . $row['producto_nombre'] . '</h5>';
-        echo '<img class="card-img-top" src="' . $row['producto_ruta'] . '" alt="' . $row['producto_nombre'] . '">';
-        echo '<h6 class="card-subtitle mb-2 text-muted">' . $row['producto_precio'] . '€' . '</h6>';
-        echo '<p class="card-text">' . $row['producto_descripcion'] . '</p>';
-        echo '<a href="#" class="card-link mr-5"><i class="fas fa-cart-plus"></i></a>';
-        echo '<a href="fichaProducto.php?producto=' . $row['producto_id'] . '"><i class="fas fa-info"></i></a> </td>';
-        echo '</div>';
+        echo '<div class="card">';
+            echo '<div class="card-body">';
+            echo '<h5 class="card-title">' . $row['producto_nombre'] . '</h5>';
+            echo '<img class="card-img-top" src="' . $row['producto_ruta'] . '" alt="' . $row['producto_nombre'] . '">';
+            echo '<h6 class="card-subtitle mt-2 mb-2 text-muted">' . $row['producto_precio'] . '€' . '</h6>';
+            echo '<p class="card-text">' . $row['producto_descripcion'] . '</p>';
+            echo '<a href="ficha-producto.php?producto=' . $row['producto_id'] . '"><i class="fas fa-info"></i></a> </td>';
+            echo '</div>';
         echo '</div>';
     }
 

@@ -10,7 +10,7 @@
 
 <body>
     <?php include 'infobar.php' ?>
-    <?php include 'navbar.php'?>
+    <?php include 'navbar.php' ?>
     <!-- imagen -->
     <div>
         <img src="images/foto1.jpg" class="imagen-completa">
