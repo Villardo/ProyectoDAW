@@ -1,6 +1,7 @@
 <!-- navbar -->
 
 <?php
+session_start();
 include 'variables.php';
 
 echo '<script type="text/javascript" src="js/navbar.js"></script>';
@@ -35,15 +36,19 @@ echo '<nav class="navbar navbar-expand-sm navbar-light bg-light">';
             echo '</li>';
 
             echo '<li class="nav-item dropdown mr-5">';
-                echo '<a class="nav-link dropdown-toggle" href="#" id="navbar-cuenta" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';               
-                    // if ($_SESSION["usuario_nombre"]) {
-                    //     echo $_SESSION["usuario_nombre"];                         
-                    // } else {
-                        echo $texto_navbar_mi_cuenta;    
-                    // }   
+                echo '<a class="nav-link dropdown-toggle" href="#" id="navbar-cuenta" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';                                
+                    if (isset($_SESSION["usuario_nombre"])) {
+                        echo $_SESSION["usuario_nombre"];
+                    }else{
+                        echo $texto_navbar_mi_cuenta;                          
+                    }  
                 echo '</a>';
                 echo '<div class="dropdown-menu" aria-labelledby="navbar-cuenta">';
-                    echo '<a class="dropdown-item" href="iniciar-sesion.php">'.$texto_navbar_login_out.'</a>';
+                    if (isset($_SESSION["usuario_nombre"])) {
+                        echo '<a class="dropdown-item" href="cerrar-sesion.php">'.$texto_navbar_logout.'</a>';
+                    }else{
+                        echo '<a class="dropdown-item" href="iniciar-sesion.php">'.$texto_navbar_login.'</a>';
+                    }
                     echo '<a class="dropdown-item" href="registro.php">'.$texto_navbar_registrarse.'</a>';
                 echo '</div>';
             echo '</li>';

@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once('conectar-db.php');
 
@@ -12,7 +13,9 @@ if (isset($_POST['nuevo_usuario'])) {
     $fecha_registro = date("Y-m-d H:i:s");
 
     $statement = $pdo->prepare("INSERT INTO usuarios (usuario_nombre, usuario_password, usuario_email, usuario_fecha_registro) VALUES (?, ?, ?, ?)");
-    $statement->execute(array($usuario,$usuario_password,$email,$fecha_registro));   
+    $statement->execute(array($usuario,$usuario_password,$email,$fecha_registro)); 
+    
+    $_SESSION["usuario_nombre"] = $usuario;
 }
 
 $pdo = null;

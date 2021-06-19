@@ -14,4 +14,6 @@ $texto_navbar_productos = "Productos";
 $texto_navbar_contacto = "Contacto";
 $texto_navbar_mi_cuenta = "Mi cuenta";
 $texto_navbar_registrarse = "Registrarse";
-$texto_navbar_login_out = "Log in/out";
+$texto_navbar_login = "Iniciar sesión";
+$texto_navbar_logout = "Cerrar sesión";
+

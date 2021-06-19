@@ -13,7 +13,7 @@
     <?php include 'navbar.php' ?>
     <!-- imagen -->
     <div>
-        <img src="images/foto1.jpg" class="imagen-completa">
+        <img src="images/foto2.jpg" class="imagen-completa">
     </div>
     <?php include 'footer.php' ?>
 </body>

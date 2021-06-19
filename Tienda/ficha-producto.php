@@ -34,6 +34,7 @@
                 echo '</div>';
                 echo '<div class="col-md-6 col-12-sm">';
                     echo '<h6 class="card-subtitle mb-2 text-muted">' . $row['producto_precio'] . '€' . '</h6>';
+                    
                     echo '<form class="form-inline mt-5" method="POST">';
                         echo '<div class="input-group mb-3">';
                             echo ' <div class="input-group-prepend">';
@@ -45,7 +46,8 @@
                                 echo '<button type="submit" class="btn btn-primary" name="add_to_cart" value="add to cart">Añadir al carrito</button>';
                             echo '</div>';                        
                         echo '</div>';
-                    echo '</form>';
+                    
+                        echo '</form>';
                     echo '<p class="card-text mt-3">' . $row['producto_descripcion'] . '</p>';
                 echo '</div>';
             echo '</div>';
