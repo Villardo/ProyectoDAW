@@ -35,19 +35,19 @@
                 echo '<div class="col-md-6 col-12-sm">';
                     echo '<h6 class="card-subtitle mb-2 text-muted">' . $row['producto_precio'] . '€' . '</h6>';
                     
-                    echo '<form class="form-inline mt-5" method="POST">';
+                    echo '<form class="form-inline mt-5" action="producto-al-carro.php" method="POST">';
                         echo '<div class="input-group mb-3">';
                             echo ' <div class="input-group-prepend">';
                                 echo '<span class="input-group-text"><i class="fas fa-cart-plus"></i></span>';
                             echo '</div>';
-                            echo '<input type="number" name="product_qty" id="productQty" class="form-control" placeholder="Quantity" min="1" max="20" value="1">';
-                            echo '<input type="hidden" name="product_id" value="1">';
+                            echo '<input type="number" name="producto_cantidad" id="productQty" class="form-control" placeholder="Cantidad" min="1" max="20" value="1">';
+                            echo '<input type="hidden" name="producto_id" value="1">';
                             echo '<div class="input-group-append">';
-                                echo '<button type="submit" class="btn btn-primary" name="add_to_cart" value="add to cart">Añadir al carrito</button>';
+                                echo '<button type="submit" class="btn btn-primary" name="agregar_producto" value="agregar_producto">Añadir al carrito</button>';
                             echo '</div>';                        
-                        echo '</div>';
-                    
-                        echo '</form>';
+                        echo '</div>';                    
+                    echo '</form>';
+
                     echo '<p class="card-text mt-3">' . $row['producto_descripcion'] . '</p>';
                 echo '</div>';
             echo '</div>';

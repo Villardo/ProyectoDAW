@@ -11,19 +11,16 @@
 <body>
     <?php include 'infobar.php' ?>
     <?php include 'navbar.php' ?>
-    
-    <?php
-    // Falta sesiones (meter en sesion el carrito y las compras al ejecutarlas crear una tabla)
 
-    session_start();
+    <?php
+    // Falta asociar las sesiones a su respectivo usuario, listado items
 
     if (isset($_GET['action'], $_GET['item']) && $_GET['action'] == 'remove') {
         unset($_SESSION['items_carrito'][$_GET['item']]);
-        header('location:cart.php');
+        header('location:carrito.php');
         exit();
     }
 
-    //pre($_SESSION);
     ?>
     <div class="row">
         <div class="col-md-12">
@@ -31,7 +28,7 @@
                 <table class="table">
                     <tr>
                         <td>
-                            <p>Your cart is emty</p>
+                            <p>No tienes nada en el carrito</p>
                         </td>
                     </tr>
                 </table>
@@ -53,32 +50,33 @@
                         foreach ($_SESSION['items_carrito'] as $key => $item) {
 
                             $imgUrl = $item['producto_ruta'];
-                            $total = $item['producto_precio'] * $item['cantidad'];
+                            $total = $item['producto_precio'] * $item['producto_cantidad'];
                             $precioTotalProducto += $total;
-                            $numeroItems += $item['cantidad'];
+                            $numeroItems += $item['producto_cantidad'];
+                        
+                            echo '<tr>';
+                                echo '<td>';
+                                    echo '<img src=" '.$imgUrl.'" class="rounded img-thumbnail mr-2" style="width:60px;">'. $item['producto_nombre'];
+
+                                    echo '<a href="carrito.php?action=remove&item='.$key.'" class="text-danger">';
+                                        echo '<i class="bi bi-trash-fill"></i>';
+                                    echo '</a>';
+
+                                echo '</td>';
+                                echo '<td>';
+                                    echo $item['producto_precio'].'€';
+                                echo '</td>';
+                                echo '<td>';
+                                    echo '<input type="number" class="cantidadProducto" data-item-id="'.$key.'" value="'.$item['producto_cantidad'].'" min="1" max="20">';
+                                echo '</td>';
+                                echo '<td>';
+                                    echo $total; 
+                                echo '</td>';
+                            echo '</tr>';
+                        }
                         ?>
-                            <tr>
-                                <td>
-                                    <img src="<?php echo $imgUrl; ?>" class="rounded img-thumbnail mr-2" style="width:60px;"><?php echo $item['producto_nombre']; ?>
-
-                                    <a href="carrito.php?action=remove&item=<?php echo $key ?>" class="text-danger">
-                                        <i class="bi bi-trash-fill"></i>
-                                    </a>
-
-                                </td>
-                                <td>
-                                    <?php echo $item['producto_precio']; ?>€
-                                </td>
-                                <td>
-                                    <input type="number" name="" class="cart-cantidad-single" data-item-id="<?php echo $key ?>" value="<?php echo $item['cantidad']; ?>" min="1" max="20">
-                                </td>
-                                <td>
-                                    <?php echo $total; ?>
-                                </td>
-                            </tr>
-                        <?php } ?>
                         <tr class="border-top border-bottom">
-                            <td><button class="btn btn-danger btn-sm" id="emptyCart">Vaciar carrito</button></td>
+                            <td><button class="btn btn-danger btn-sm" id="vaciarCarrito">Vaciar carrito</button></td>
                             <td></td>
                             <td>
                                 <strong>
@@ -102,5 +100,8 @@
         </div>
     </div>
     <?php include 'footer.php' ?>
+    <script type="text/javascript" src="js/carrito.js"></script>
+
 </body>
+
 </html>

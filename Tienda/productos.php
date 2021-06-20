@@ -32,13 +32,13 @@
 
     echo '<div class="container productos mt-3">';
     foreach ($pdo->query($sql) as $row) {
-        echo '<div class="card">';
+        echo '<div class="card" id="'.$row['producto_id'].'">';
             echo '<div class="card-body">';
             echo '<h5 class="card-title">' . $row['producto_nombre'] . '</h5>';
             echo '<img class="card-img-top" src="' . $row['producto_ruta'] . '" alt="' . $row['producto_nombre'] . '">';
             echo '<h6 class="card-subtitle mt-2 mb-2 text-muted">' . $row['producto_precio'] . '€' . '</h6>';
             echo '<p class="card-text">' . $row['producto_descripcion'] . '</p>';
-            echo '<a href="ficha-producto.php?producto=' . $row['producto_id'] . '"><i class="fas fa-info"></i></a> </td>';
+            //echo '<a href="ficha-producto.php?producto=' . $row['producto_id'] . '"><i class="fas fa-info"></i></a> </td>';
             echo '</div>';
         echo '</div>';
     }
@@ -55,7 +55,7 @@
     }
     echo '</ul>';
     echo '</nav>';
-
+    echo '<script type="text/javascript" src="js/productos.js"></script>';
     ?>
     <?php include 'footer.php' ?>
 </body>
