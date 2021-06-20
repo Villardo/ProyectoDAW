@@ -41,7 +41,7 @@
                                 echo '<span class="input-group-text"><i class="fas fa-cart-plus"></i></span>';
                             echo '</div>';
                             echo '<input type="number" name="producto_cantidad" id="productQty" class="form-control" placeholder="Cantidad" min="1" max="20" value="1">';
-                            echo '<input type="hidden" name="producto_id" value="1">';
+                            echo '<input type="hidden" name="producto_id" value="'. $row['producto_id'] .'">';
                             echo '<div class="input-group-append">';
                                 echo '<button type="submit" class="btn btn-primary" name="agregar_producto" value="agregar_producto">Añadir al carrito</button>';
                             echo '</div>';                        

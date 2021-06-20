@@ -45,18 +45,18 @@
                     </thead>
                     <tbody>
                         <?php
+                        
                         $precioTotalProducto = 0;
                         $numeroItems = 0;
                         foreach ($_SESSION['items_carrito'] as $key => $item) {
 
-                            $imgUrl = $item['producto_ruta'];
                             $total = $item['producto_precio'] * $item['producto_cantidad'];
                             $precioTotalProducto += $total;
                             $numeroItems += $item['producto_cantidad'];
                         
                             echo '<tr>';
                                 echo '<td>';
-                                    echo '<img src=" '.$imgUrl.'" class="rounded img-thumbnail mr-2" style="width:60px;">'. $item['producto_nombre'];
+                                    echo '<img src=" '.$item['producto_ruta'].'" class="rounded img-thumbnail mr-2" style="width:60px;">'. $item['producto_nombre'];
 
                                     echo '<a href="carrito.php?action=remove&item='.$key.'" class="text-danger">';
                                         echo '<i class="bi bi-trash-fill"></i>';

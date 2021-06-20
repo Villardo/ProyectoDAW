@@ -16,6 +16,6 @@ if (isset($_POST['usuario_nombre'])) {
     if (isset($_SESSION["usuario_id"])) {
         header("Location:inicio.php");
     } else {
-        header("Location:inicio-sesion.php");
+        header("Location:iniciar-sesion.php");
     }
 }
