@@ -59,7 +59,7 @@
                                     echo '<img src=" '.$item['producto_ruta'].'" class="rounded img-thumbnail mr-2" style="width:60px;">'. $item['producto_nombre'];
 
                                     echo '<a href="carrito.php?action=remove&item='.$key.'" class="text-danger">';
-                                        echo '<i class="bi bi-trash-fill"></i>';
+                                        echo '<i class="bi bi-trash-fill pl-3"></i>';
                                     echo '</a>';
 
                                 echo '</td>';
@@ -70,7 +70,7 @@
                                     echo '<input type="number" class="cantidadProducto" data-item-id="'.$key.'" value="'.$item['producto_cantidad'].'" min="1" max="20">';
                                 echo '</td>';
                                 echo '<td>';
-                                    echo $total; 
+                                    echo $total.'€'; 
                                 echo '</td>';
                             echo '</tr>';
                         }
@@ -84,7 +84,7 @@
                                     echo ($numeroItems == 1) ? $numeroItems . ' item' : $numeroItems . ' items'; ?>
                                 </strong>
                             </td>
-                            <td><strong>$<?php echo $precioTotalProducto; ?></strong></td>
+                            <td><strong><?php echo $precioTotalProducto .'€'?></strong></td>
                         </tr>
                         </tr>
                     </tbody>
