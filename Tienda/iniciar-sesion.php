@@ -20,7 +20,7 @@
                 <input type="password" class="form-control" name="usuario_password" id="inputPassword" placeholder="Password">
             </div>
             <div class="form-group">
-                <label class="form-check-label"><input name="recordar_usuario" type="checkbox"> Recuérdame</label>
+                <label class="form-check-label"><input name="recordar_usuario" type="checkbox" checked> Recuérdame</label>
             </div>
             <button type="submit" class="btn btn-primary">Iniciar sesion</button>
         </form>
