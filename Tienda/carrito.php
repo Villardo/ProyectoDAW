@@ -79,7 +79,7 @@
                         echo '<td></td>';
                         echo '<td>';
                             echo '<strong>';
-                                echo ($numeroItems == 1) ? $numeroItems . ' producto' : $numeroItems . ' productos'; 
+                                echo ($numeroItems == 1) ? $numeroItems . ' item' : $numeroItems . ' items'; 
                             echo '</strong>';
                         echo '</td>';
                         echo '<td><strong>'. $precioTotalProductos .'€'.'</strong></td>';
