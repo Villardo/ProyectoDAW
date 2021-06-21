@@ -1,5 +1,5 @@
 <?php
-$localizacion = "Avenida alcalde Lavadores";
+$localizacion = "Rua Paz Pardo 84";
 $horario = "Lunes a viernes 10h-20h";
 $whatsapp = 123456789;
 $email = "correoEstetica@gmail.com";
