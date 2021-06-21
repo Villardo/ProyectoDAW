@@ -75,7 +75,7 @@
                     echo '</li> ';
                     echo '<li class="list-group-item d-flex justify-content-between">';
                         echo '<span>Total</span>';
-                        echo '<strong>'.$precioFinal.' € </strong>';
+                        echo '<strong>'.round($precioFinal,2).' € </strong>';
                     echo '</li>';
                 echo '</ul>';
         
