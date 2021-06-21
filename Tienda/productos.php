@@ -11,7 +11,6 @@
 <body>
     <?php include 'infobar.php' ?>
     <?php include 'navbar.php' ?>
-    <!-- contenido (mostrar todos con paginacion y con AJAX mostrar los de la busqueda) -->
     <?php
     $numRegistros = 6;
     $pagina = 1;
@@ -38,7 +37,6 @@
             echo '<img class="card-img-top" src="' . $row['producto_ruta'] . '" alt="' . $row['producto_nombre'] . '">';
             echo '<h6 class="card-subtitle mt-2 mb-2 text-muted">' . $row['producto_precio'] . '€' . '</h6>';
             echo '<p class="card-text">' . $row['producto_descripcion'] . '</p>';
-            //echo '<a href="ficha-producto.php?producto=' . $row['producto_id'] . '"><i class="fas fa-info"></i></a> </td>';
             echo '</div>';
         echo '</div>';
     }
