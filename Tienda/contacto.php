@@ -19,21 +19,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <form class="mt-3">
+                <form class="mt-3" action="enviar-mail.php" method="POST">
                     <div class="row">
                         <div class="col-3">
-                            <input type="text" class="form-control" id="contacto_nombre" name="usuario_nombre" placeholder="Nombre">
+                            <input type="text" class="form-control" id="contacto_nombre" name="contacto_nombre" placeholder="Nombre">
                         </div>
                         <div class="col-3">
-                            <input type="tel" class="form-control" id="contacto_telf" name="usuario_nombre" placeholder="Teléfono (opcional)">
+                            <input type="tel" class="form-control" id="contacto_telf" name="contacto_telf" placeholder="Teléfono (opcional)">
                         </div>
                         <div class="col-6">
-                            <input type="email" class="form-control" id="contacto_email" name="usuario_nombre" placeholder="Email">
+                            <input type="email" class="form-control" id="contacto_email" name="contacto_email" placeholder="Email">
                         </div>
                     </div>
 
                     <div class="row">
-                        <textarea id="txtid" class="form-control" name="txtname" rows="4" cols="50" maxlength="200"></textarea>
+                        <textarea id="txtid" class="form-control" name="contacto_texto" rows="4" cols="50" maxlength="200"></textarea>
                     </div>
 
                     <div class="row">

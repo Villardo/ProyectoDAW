@@ -7,8 +7,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'actualizaCantidad')
     $itemCantidad = $_POST['item_cantidad'];
     $itemPrecioTotal = $_SESSION['items_carrito'][$item]['precio_total'];
 
-    $_SESSION['items_carrito'][$item]['cantidadActualizada'] = $itemCantidad;
-    $_SESSION['items_carrito'][$item]['total_price'] = $itemCantidad * $itemPrecioTotal;
+    $_SESSION['items_carrito'][$item]['producto_cantidad'] = $itemCantidad;
     
     echo json_encode(['msg' => 'success']);
     exit();

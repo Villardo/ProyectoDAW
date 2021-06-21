@@ -4,6 +4,8 @@
 // GRANT SELECT ON centro_estetica.servicios TO 'cliente'@'localhost'
 // GRANT INSERT ON centro_estetica.usuarios TO 'cliente'@'localhost'
 // GRANT SELECT ON centro_estetica.usuarios TO 'cliente'@'localhost'
+// GRANT SELECT ON centro_estetica.descuentos TO 'cliente'@'localhost'
+// GRANT INSERT ON centro_estetica.ventas TO 'cliente'@'localhost'
 
 
 // CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin_password';
