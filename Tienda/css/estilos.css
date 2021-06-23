@@ -42,7 +42,17 @@
     border: 0.1rem solid black;
 }
 
+.sobre-mi{
+    height: 60px;
+    width: 60px;
+}
+
+.iconos{
+    justify-content: center;
+}
+
 body {
 	min-height: 100vh;
 	width: 100%;
 }
+

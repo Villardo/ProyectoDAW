@@ -16,21 +16,19 @@ let urlWhatsapp = 'https://api.whatsapp.com/send?phone=' + tuNumero + '&text=%20
 
 let email="correoEstetica@gmail.com";
 
-$("#map").on('click', function () {
+$(".fa-map-marked-alt").on('click', function () {
     window.open(url1, '_blank');
     //window.open(url2, '_blank');
 });
 
-$("#whatsapp").on('click', function () {
+$(".fa-whatsapp-square").on('click', function () {
     window.open(urlWhatsapp, '_blank');
 });
 
-$("#email").on('click', function () {
+$(".fa-envelope-square").on('click', function () {
     window.location.href='mailto:'+email;
 });
 
-$("#telefono").on('click', function () {
+$(".fa-phone-square-alt").on('click', function () {
     window.location.href='tel:'+tuNumero;
 });
-
-
