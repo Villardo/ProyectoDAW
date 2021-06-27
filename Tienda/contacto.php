@@ -12,13 +12,12 @@
     <?php include 'infobar.php' ?>
     <?php include 'navbar.php' ?>
 
-    <!-- imagen -->
-    <div>
-        <img src="images/foto3.jpg" class="imagen-completa">
-    </div>
-    <div class="container">
+    <div class="container-fluid">
+        <div class="row contacto-foto">
+            <!-- imagen -->
+        </div>
         <div class="row">
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-6 col-sm-12 contacto-form">
                 <form class="mt-3" action="enviar-mail.php" method="POST">
                     <div class="row">
                         <div class="col-3">
@@ -50,7 +49,7 @@
 
                 </form>
             </div>
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-6 col-sm-12 googlemaps">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2955.054024115711!2d-8.695343184570465!3d42.21328997919706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd25882f887b0879%3A0x1860e2dcd7c15677!2sColexio%20de%20Fomento%20Montecastelo!5e0!3m2!1ses!2ses!4v1624072717570!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>

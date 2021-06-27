@@ -19,6 +19,29 @@
         $pagina = $_GET['pag'];
     }
 
+    if (isset($_SESSION['nuevo_producto'])) {
+        if ($_SESSION['nuevo_producto']==1) {
+            echo '<div class="alert alert-success" role="alert">';
+                echo '<div>';
+                    echo 'Has añadido '.$_SESSION['nuevo_producto'].' nuevo producto';
+                echo '</div>';
+                echo '<div id="cerrarAlert">';
+                    echo '❎';
+                echo '</div>';   
+            echo '</div>';
+        }else{
+            echo '<div class="alert alert-success" role="alert">';
+                echo '<div>';
+                    echo 'Has añadido '.$_SESSION['nuevo_producto'].' nuevos productos';
+                echo '</div>';
+                echo '<div id="cerrarAlert">';
+                    echo '❎';
+                echo '</div>';   
+            echo '</div>';
+        }
+        unset($_SESSION['nuevo_producto']);
+    }
+
     require_once('conectar-db.php');
 
     $total_registros = $pdo->query('SELECT count(*) from productos')->fetchColumn();
@@ -33,10 +56,10 @@
     foreach ($pdo->query($sql) as $row) {
         echo '<div class="card" id="'.$row['producto_id'].'">';
             echo '<div class="card-body">';
-            echo '<h5 class="card-title">' . $row['producto_nombre'] . '</h5>';
-            echo '<img class="card-img-top" src="' . $row['producto_ruta'] . '" alt="' . $row['producto_nombre'] . '">';
-            echo '<h6 class="card-subtitle mt-2 mb-2 text-muted">' . $row['producto_precio'] . '€' . '</h6>';
-            echo '<p class="card-text">' . $row['producto_descripcion'] . '</p>';
+                echo '<h5 class="card-title text-center">' . $row['producto_nombre'] . '</h5>';
+                echo '<img class="card-img-top" src="' . $row['producto_ruta'] . '" alt="' . $row['producto_nombre'] . '">';
+                echo '<h6 class="card-subtitle mt-3 mb-2 text-muted">' . $row['producto_precio'] . '€' . '</h6>';
+                echo '<p class="card-text">' . $row['producto_descripcion'] . '</p>';
             echo '</div>';
         echo '</div>';
     }

@@ -24,8 +24,8 @@
 
     echo '<div class="container" id="producto">';
     foreach ($pdo->query($sql) as $row) {
-        echo '<div class="row mt-3">';
-            echo '<div class="col-md-6 col-12-sm">';
+        echo '<div class="row mt-5">';
+            echo '<div class="col-md-6 col-12-sm p-3">';
                 echo '<img class="card-img-info" src="' . $row['producto_ruta'] . '" alt="' . $row['producto_nombre'] . '">';            
             echo '</div>';
             echo '<div class="col-md-6 col-12-sm mt-3">';

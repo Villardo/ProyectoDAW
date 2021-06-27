@@ -25,7 +25,6 @@
             <div class="col-2 "><img class="sobre-mi" src="images/svg/pintar.svg" /></div>
             <div class="col-2 "><img class="sobre-mi" src="images/svg/productos.svg" /></div>
             <div class="col-2 "><img class="sobre-mi" src="images/svg/flor.svg" /></div>
-
         </div>
     </div>
     <?php include 'footer.php' ?>

@@ -15,5 +15,9 @@ echo '<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css
 
 //<!-- css -->
 echo '<link rel="stylesheet" href="css/estilos.css">';
+
+//<!-- animate -->
+echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>';
+  
 ?>
 

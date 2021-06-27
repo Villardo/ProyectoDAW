@@ -1,3 +1,7 @@
+:root {
+    --card-color-light: rgb(235, 243, 241);
+}
+
 .imagen-completa {
     width: 100%;
     height: auto;
@@ -19,15 +23,29 @@
     width: 30rem;
 }
 
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--card-color-light);
+}
+
 .card-img-top {
-    width: 100%;
+    width: auto;
     height: 15vw;
     object-fit: cover;
 }
 
+.card-subtitle {
+    align-self: flex-end;
+}
+
 .card-img-info {
-    width: 100%;
-    height: 100%;
+    width: 50vw;
+    height: 50vh;
     object-fit: contain;
 }
 
@@ -42,17 +60,53 @@
     border: 0.1rem solid black;
 }
 
-.sobre-mi{
+.sobre-mi {
     height: 60px;
     width: 60px;
 }
 
-.iconos{
+.iconos {
     justify-content: center;
 }
 
-body {
-	min-height: 100vh;
-	width: 100%;
+.contacto-foto {
+    background-image: url(../images/foto3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -30vh;
+    height: 25vh;
 }
 
+.contacto-form {
+    height: 100%;
+    display: flex;
+}
+
+.googlemaps {
+    padding-top: 2.5vh;
+}
+
+.googlemaps>iframe {
+    display: block;
+    width: 100%;
+    height: 50vh;
+}
+
+.alert{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#cerrarAlert{
+    cursor: pointer;
+}
+
+html, body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden
+}

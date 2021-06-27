@@ -18,7 +18,7 @@ if (isset($_POST['agregar_producto'])) {
         ];
     }
     $_SESSION['items_carrito'][] = $arrayCarrito;
-    
+    $_SESSION['nuevo_producto'] = $_POST['producto_cantidad'];
 }
 
 $pdo = null;
