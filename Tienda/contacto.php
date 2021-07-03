@@ -16,34 +16,42 @@
         <div class="row contacto-foto">
             <!-- imagen -->
         </div>
-        <div class="row">
-            <div class="col-md-6 col-sm-12 contacto-form">
-                <form class="mt-3" action="enviar-mail.php" method="POST">
+        <div class="row contacto-abajo">
+            <div class="col-md-6 col-sm-12">
+                <form class="mt-3 contacto-form" action="enviar-mail.php" method="POST">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-6">
                             <input type="text" class="form-control" id="contacto_nombre" name="contacto_nombre" placeholder="Nombre">
                         </div>
-                        <div class="col-3">
+                        <div class="col-6">
                             <input type="tel" class="form-control" id="contacto_telf" name="contacto_telf" placeholder="Teléfono (opcional)">
                         </div>
-                        <div class="col-6">
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
                             <input type="email" class="form-control" id="contacto_email" name="contacto_email" placeholder="Email">
+
                         </div>
                     </div>
 
                     <div class="row">
-                        <textarea id="txtid" class="form-control" name="contacto_texto" rows="4" cols="50" maxlength="200"></textarea>
+                        <div class="col-12">
+                            <textarea id="txtid" class="form-control" name="contacto_texto" rows="4" cols="50" maxlength="200"></textarea>
+                        </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-6">
-                            <div class="form-group form-check">
+                        <div class="col-12">
+                            <div class="form-group form-check pt-4">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Acepto enviar mis datos...</label>
                             </div>
                         </div>
-                        <div class="col-6 text-right">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 btn-block">
+                            <button type="submit" class="btn btn-primary btn-block">Enviar</button>
                         </div>
                     </div>
 

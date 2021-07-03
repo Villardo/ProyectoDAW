@@ -11,23 +11,35 @@
 <body>
     <?php include 'infobar.php' ?>
     <?php include 'navbar.php' ?>
-    <!-- Foto -->
+
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <img src="images/svg/cara.svg" style="max-height: 45vh;" />
+        <div class="row mt-5">
+            <div class="col-md-6 col-xs-12 imagen-cara">
+                <img src="images/svg/cara.svg" class="img-fluid" id="cara" style="max-height: 45vh; min-height: 45vh;" />
+            </div>
+            <div class="col-md-6 col-xs-12 sobre-mi-texto">
+                <p>Hola, mi nombre es Carla Mª Villar Cuadrado. Me llevo dedicando al mundo de la estética desde hace casi 10 años y he decidido montar por mi propia cuenta este negocio.</p>
+                <p>Cuento con las siguientes titulaciones:</p>
+                <ul>
+                    <li>Grado superior de estética</li>
+                    <li>Curso de fisioterapia</li>
+                    <li>Curso de quiromasaje</li>
+                </ul>
             </div>
         </div>
-        <div class="row iconos pt-5">
-            <div class="col-2 "><img class="sobre-mi" src="images/svg/cosmeticos.svg" /></div>
-            <div class="col-2 "><img class="sobre-mi" src="images/svg/flor.svg" /></div>
-            <div class="col-2 "><img class="sobre-mi" src="images/svg/ojo.svg" /></div>
-            <div class="col-2 "><img class="sobre-mi" src="images/svg/pintar.svg" /></div>
-            <div class="col-2 "><img class="sobre-mi" src="images/svg/productos.svg" /></div>
-            <div class="col-2 "><img class="sobre-mi" src="images/svg/flor.svg" /></div>
+
+        <div class="row iconos pt-3 mt-3">
+            <div id="icono1" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/cosmeticos.svg" data-ruta="images/foto1.jpg" /></div>
+            <div id="icono2" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/flor.svg" data-ruta="images/foto7.jpg" /></div>
+            <div id="icono3" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/ojo.svg" data-ruta="images/foto3.jpg" /></div>
+            <div id="icono4" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/pintar.svg" data-ruta="images/foto4.jpg" /></div>
+            <div id="icono5" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/productos.svg" data-ruta="images/foto5.jpg" /></div>
+            <div id="icono6" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/flor.svg" data-ruta="images/foto6.jpg" /></div>
         </div>
     </div>
     <?php include 'footer.php' ?>
+    <script type="text/javascript" src="js/sobre-mi.js"></script>
+
 </body>
 
 </html>
