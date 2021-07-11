@@ -29,12 +29,12 @@
         </div>
 
         <div class="row iconos pt-3 mt-3">
-            <div id="icono1" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/cosmeticos.svg" data-ruta="images/foto1.jpg" /></div>
-            <div id="icono2" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/flor.svg" data-ruta="images/foto7.jpg" /></div>
-            <div id="icono3" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/ojo.svg" data-ruta="images/foto3.jpg" /></div>
-            <div id="icono4" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/pintar.svg" data-ruta="images/foto4.jpg" /></div>
-            <div id="icono5" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/productos.svg" data-ruta="images/foto5.jpg" /></div>
-            <div id="icono6" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/flor.svg" data-ruta="images/foto6.jpg" /></div>
+            <div id="icono1" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/beauty-treatment.svg" data-ruta="images/foto1.jpg" /></div>
+            <div id="icono2" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/make-up.svg" data-ruta="images/foto7.jpg" /></div>
+            <div id="icono3" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/productos.svg" data-ruta="images/foto3.jpg" /></div>
+            <div id="icono4" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/massage.svg" data-ruta="images/foto4.jpg" /></div>
+            <div id="icono5" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/spa.svg" data-ruta="images/foto5.jpg" /></div>
+            <div id="icono6" class="col-2 icono"><img class="sobre-mi sobre-mi-icono" src="images/svg/pintar.svg" data-ruta="images/foto6.jpg" /></div>
         </div>
     </div>
     <?php include 'footer.php' ?>

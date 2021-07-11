@@ -19,7 +19,7 @@ echo '<link rel="stylesheet" href="css/estilos.css">';
 //<!-- animate -->
 echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>';
   
-
+//<!-- favicon -->
 echo '<link rel="icon" href="images/favicon.ico" type="image/png">';
 ?>
 

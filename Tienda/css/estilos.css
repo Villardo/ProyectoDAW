@@ -7,6 +7,56 @@
     height: auto;
 }
 
+.imagen-inicio {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -30vh;
+    height: 90vh;
+}
+
+.grab {
+    cursor: grab;
+}
+
+.carousel {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.eslogan {
+    height: 16vh;
+    background-color: rgb(230, 222, 230);
+}
+
+.eslogan-text {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.descuento {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.noticias {
+    margin: 0;
+}
+
+.descuento-izq {
+    background: #bdc3c7;
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
+    background: linear-gradient(to right, #2c3e50, #bdc3c7);
+    margin: 0;
+}
+
+.descuento-der {
+    background: #bdc3c7;
+    background: -webkit-linear-gradient(to left, #2c3e50, #bdc3c7);
+    background: linear-gradient(to left, #2c3e50, #bdc3c7);
+    margin: 0;
+    color: white;
+}
+
 .productos {
     display: flex;
     justify-content: space-evenly;
@@ -64,7 +114,6 @@
     height: 60px;
     width: 60px;
 }
-
 
 .iconos {
     justify-content: center;
