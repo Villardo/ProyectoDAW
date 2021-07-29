@@ -11,11 +11,13 @@
 <body>
     <?php include 'infobar.php' ?>
     <?php include 'navbar.php' ?>
-    <!-- imagen -->
+    <?php
+    var_dump($_SESSION);
+    ?>
 
     <div class="container-fluid">
         <div class="row">
-            <div id="carouselImagen" class="carousel slide col-12 pt-2 grab d-block w-100" data-ride="carousel" data-interval="false">           
+            <div id="carouselImagen" class="carousel slide col-12 pt-2 grab d-block w-100" data-ride="carousel" data-interval="false">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselImagen" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselImagen" data-slide-to="1"></li>
@@ -51,7 +53,7 @@
             <hr>
             <div class="row">
                 <div class="col-md-6 col-xs-12 descuento">
-                    Llevate un descuento de 10€ en tu primera compra con un valor superior a 50€ al introducir "PRIMERACOMPRA" 
+                    Llevate un descuento de 10€ en tu primera compra con un valor superior a 50€ al introducir "PRIMERACOMPRA"
                 </div>
                 <div class="col-md-6 col-xs-12 descuento">
                     <h1 class="display-4 ">-10 €</h1>

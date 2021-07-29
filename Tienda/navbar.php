@@ -5,6 +5,9 @@ session_start();
 include 'variables.php';
 
 echo '<script type="text/javascript" src="js/navbar.js"></script>';
+if (isset($_SESSION["usuario_id"]) && isset($_SESSION["usuario_nombre"])) {
+    $nombre_de_usuario = $_SESSION["usuario_nombre"];
+}
 
 echo '<nav class="navbar navbar-expand-sm navbar-light bg-light">';
     echo '<a class="navbar-brand" href="#">'.$logo_ruta.'</a>';
@@ -38,7 +41,7 @@ echo '<nav class="navbar navbar-expand-sm navbar-light bg-light">';
             echo '<li class="nav-item dropdown mr-5">';
                 echo '<a class="nav-link dropdown-toggle" href="#" id="navbar-cuenta" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';                                
                     if (isset($_SESSION["usuario_nombre"])) {
-                        echo $_SESSION["usuario_nombre"];
+                        echo $nombre_de_usuario;
                     }else{
                         echo $texto_navbar_mi_cuenta;                          
                     }  

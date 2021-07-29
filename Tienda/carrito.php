@@ -21,80 +21,94 @@
 
     echo '<div class="row">';
         echo '<div class="col-md-12">';
-             if (empty($_SESSION['items_carrito'])) { 
-                echo '<table class="table">';
-                   echo ' <tr>';
-                        echo '<td>';
-                            echo '<p>No tienes nada en el carrito</p>';
-                        echo '</td>';
+            if (empty($_SESSION['items_carrito'])) { 
+            echo '<table class="table">';
+                echo ' <tr>';
+                    echo '<td>';
+                        echo '<p>No tienes nada en el carrito</p>';
+                    echo '</td>';
+                echo '</tr>';
+            echo '</table>';
+            } 
+            if (!isset($_SESSION['usuario_nombre'])) { 
+            echo '<table class="table">';
+                echo ' <tr>';
+                    echo '<td>';
+                        echo '<p>No has iniciado sesión</p>';
+                    echo '</td>';
+                echo '</tr>';
+            echo '</table>';
+            }
+            if (isset($_SESSION['items_carrito']) && count($_SESSION['items_carrito']) > 0 && isset($_SESSION['usuario_nombre'])) { 
+            echo '<table class="table">';
+                echo '<thead>';
+                    echo '<tr>';
+                        echo '<th>Producto</th>';
+                        echo '<th>Precio</th>';
+                        echo '<th>Cantidad</th>';
+                        echo '<th>Total</th>';
                     echo '</tr>';
-                echo '</table>';
-             } 
-             if (isset($_SESSION['items_carrito']) && count($_SESSION['items_carrito']) > 0) { 
-                echo '<table class="table">';
-                    echo '<thead>';
-                        echo '<tr>';
-                            echo '<th>Producto</th>';
-                            echo '<th>Precio</th>';
-                            echo '<th>Cantidad</th>';
-                            echo '<th>Total</th>';
-                        echo '</tr>';
-                    echo '</thead>';
-                    echo '<tbody>';
-                            
-                    $precioTotalProductos = 0;
-                    $numeroItems = 0;
-                    foreach ($_SESSION['items_carrito'] as $key => $item) {
-
-                        $total = $item['producto_precio'] * $item['producto_cantidad'];
-                        $precioTotalProductos += $total;
-                        $numeroItems += $item['producto_cantidad'];
-
-                        $_SESSION['items_cantidad']=$numeroItems;
-                        $_SESSION['precio_total']=$precioTotalProductos;
-                    
-                        echo '<tr>';
-                            echo '<td>';
-                                echo '<img src=" '.$item['producto_ruta'].'" class="rounded img-thumbnail mr-2" style="width:60px;">'. $item['producto_nombre'];
-
-                                echo '<a href="carrito.php?action=remove&item='.$key.'" class="text-danger">';
-                                    echo '<i class="bi bi-trash-fill pl-3"></i>';
-                                echo '</a>';
-
-                            echo '</td>';
-                            echo '<td>';
-                                echo $item['producto_precio'].'€';
-                            echo '</td>';
-                            echo '<td>';
-                                echo '<input type="number" class="cantidadProducto" data-item-id="'.$key.'" value="'.$item['producto_cantidad'].'" min="1" max="20">';
-                            echo '</td>';
-                            echo '<td>';
-                                echo $total.'€'; 
-                            echo '</td>';
-                        echo '</tr>';
-                    }echo '';
-
-                    echo '<tr class="border-top border-bottom">';
-                        echo '<td><button class="btn btn-danger btn-sm" id="vaciarCarrito">Vaciar carrito</button></td>';
-                        echo '<td></td>';
-                        echo '<td>';
-                            echo '<strong>';
-                                echo ($numeroItems == 1) ? $numeroItems . ' item' : $numeroItems . ' items'; 
-                            echo '</strong>';
-                        echo '</td>';
-                        echo '<td><strong>'. $precioTotalProductos .'€'.'</strong></td>';
-                    echo '</tr>';
-                    echo '</tr>';
+                echo '</thead>';
+                echo '<tbody>';
                         
-                    echo '</tbody>';
-                echo '</table>';
-                echo '<div class="row">';
-                    echo '<div class="col-md-11">';
-                        echo '<a href="pago.php">';
-                            echo '<button class="btn btn-primary btn-lg float-right">Comprar</button>';
-                        echo '</a>';
-                    echo '</div>';
+                $precioTotalProductos = 0;
+                $numeroItems = 0;
+
+                foreach ($_SESSION['items_carrito'] as $key => $item) {
+                    
+                    // if (array_key_exists($item['producto_nombre'] , $_SESSION['items_carrito'])) {
+                    //     $item['producto_cantidad']
+                    // }
+
+                    $total = $item['producto_precio'] * $item['producto_cantidad'];
+                    $precioTotalProductos += $total;
+                    $numeroItems += $item['producto_cantidad'];
+
+                    $_SESSION['items_cantidad']=$numeroItems;
+                    $_SESSION['precio_total']=$precioTotalProductos;
+
+                    echo '<tr>';
+                        echo '<td>';
+                            echo '<img src=" '.$item['producto_ruta'].'" class="rounded img-thumbnail mr-2" style="width:60px;">'. $item['producto_nombre'];
+
+                            echo '<a href="carrito.php?action=remove&item='.$key.'" class="text-danger">';
+                                echo '<i class="bi bi-trash-fill pl-3"></i>';
+                            echo '</a>';
+
+                        echo '</td>';
+                        echo '<td>';
+                            echo $item['producto_precio'].'€';
+                        echo '</td>';
+                        echo '<td>';
+                            echo '<input type="number" class="cantidadProducto" data-item-id="'.$key.'" value="'.$item['producto_cantidad'].'" min="1">';
+                        echo '</td>';
+                        echo '<td>';
+                            echo $total.'€'; 
+                        echo '</td>';
+                    echo '</tr>';
+                }
+                
+                echo '<tr class="border-top border-bottom">';
+                    echo '<td><button class="btn btn-danger btn-sm" id="vaciarCarrito">Vaciar carrito</button></td>';
+                    echo '<td></td>';
+                    echo '<td>';
+                        echo '<strong>';
+                            echo ($numeroItems == 1) ? $numeroItems . ' item' : $numeroItems . ' items'; 
+                        echo '</strong>';
+                    echo '</td>';
+                    echo '<td><strong>'. $precioTotalProductos .'€'.'</strong></td>';
+                echo '</tr>';
+                echo '</tr>';
+                    
+                echo '</tbody>';
+            echo '</table>';
+            echo '<div class="row">';
+                echo '<div class="col-md-11">';
+                    echo '<a href="pago.php">';
+                        echo '<button class="btn btn-primary btn-lg float-right">Comprar</button>';
+                    echo '</a>';
                 echo '</div>';
+            echo '</div>';
             } 
         echo '</div>';
     echo '</div>';
