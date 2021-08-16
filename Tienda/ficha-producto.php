@@ -25,7 +25,7 @@
     echo '<div class="container" id="producto">';
     foreach ($pdo->query($sql) as $row) {
         echo '<div class="row mt-5">';
-            echo '<div class="col-md-6 col-12-sm p-3">';
+            echo '<div class="col-md-6 col-12-sm p-3 alinear-derecha">';
                 echo '<img class="card-img-info" src="' . $row['producto_ruta'] . '" alt="' . $row['producto_nombre'] . '">';            
             echo '</div>';
             echo '<div class="col-md-6 col-12-sm mt-3">';
@@ -46,7 +46,9 @@
                                 if (isset($_SESSION["usuario_nombre"])) {
                                     echo '<button type="submit" class="btn btn-primary" name="agregar_producto" value="agregar_producto">Añadir al carrito</button>';
                                 }else {
-                                    echo '<button type="submit" class="btn btn-primary" name="agregar_producto" value="agregar_producto" disabled>Añadir al carrito</button>';
+                                    echo '<button type="submit" class="btn btn-primary tooltip" name="agregar_producto" value="agregar_producto" disabled>
+                                    Añadir al carrito <span class="tooltiptext">Es necesario registrarse</span>
+                                    </button>';
                                 }
                             echo '</div>';                        
                         echo '</div>';                    

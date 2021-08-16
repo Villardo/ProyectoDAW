@@ -18,11 +18,13 @@
     <div class="container-fluid">
         <div class="row">
             <div id="carouselImagen" class="carousel slide col-12 pt-2 grab d-block w-100" data-ride="carousel" data-interval="false">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselImagen" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselImagen" data-slide-to="1"></li>
-                    <li data-target="#carouselImagen" data-slide-to="2"></li>
-                </ol>
+                <div id="carousel-controls">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselImagen" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselImagen" data-slide-to="1"></li>
+                        <li data-target="#carouselImagen" data-slide-to="2"></li>
+                    </ol>
+                </div>
                 <div class="carousel-inner img-fluid d-block w-100">
                     <div class="carousel-item active">
                         <img src="images/foto1.jpg" class="d-block w-100" alt="...">

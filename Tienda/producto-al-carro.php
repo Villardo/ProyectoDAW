@@ -7,11 +7,7 @@ $sql = "SELECT * FROM productos WHERE producto_id = " . $_POST['producto_id'];
 if (isset($_POST['agregar_producto'])) {
 
     foreach ($pdo->query($sql) as $row) {
-        
-        // if (array_key_exists($row['producto_nombre'] , $_SESSION['items_carrito'])) {
-        //     $_SESSION['items_carrito']['producto_cantidad']+=$_POST['producto_cantidad'];
-        // }
-        
+
         $arrayCarrito = [
             'producto_id' => $row['producto_id'],
             'producto_nombre' => $row['producto_nombre'],

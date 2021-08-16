@@ -38,27 +38,63 @@ echo '<nav class="navbar navbar-expand-sm navbar-light bg-light">';
                 echo '<a href="carrito.php"><i class="fas fa-shopping-cart fa-2x"></i></a>';
             echo '</li>';
 
-            echo '<li class="nav-item dropdown mr-5">';
-                echo '<a class="nav-link dropdown-toggle" href="#" id="navbar-cuenta" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';                                
+            echo '<li class="nav-item mr-5">';
+                echo '<a class="nav-link btn-formulario" href="#" id="navbar-cuenta" role="button"> ';                                            
                     if (isset($_SESSION["usuario_nombre"])) {
                         echo $nombre_de_usuario;
                     }else{
                         echo $texto_navbar_mi_cuenta;                          
                     }  
                 echo '</a>';
-                echo '<div class="dropdown-menu" aria-labelledby="navbar-cuenta">';
-                    if (isset($_SESSION["usuario_nombre"])) {
-                        echo '<a class="dropdown-item" href="cerrar-sesion.php">'.$texto_navbar_logout.'</a>';
-                    }else{
-                        echo '<a class="dropdown-item" href="iniciar-sesion.php">'.$texto_navbar_login.'</a>';
-                    }
-                    echo '<a class="dropdown-item" href="registro.php">'.$texto_navbar_registrarse.'</a>';
-                echo '</div>';
             echo '</li>';
-
         echo '</ul>';
     echo '</div>';
+    echo '<div class="formulario-modal" id="modalUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">';
+
+        if (isset($_SESSION["usuario_nombre"])) {
+            echo '<div class="form-structor medio">
+                <div class="signup">
+                    <h2 class="form-title" id="cerrar-sesion">Está seguro de que quiere desconectarse ?</h2>
+                    <div class="form-holder">
+                        <form action="cerrar-sesion.php" method="POST">
+                            <button type="submit" class="btn btn-primary submit-btn" name="cerrar-sesion" submit-btn">Cerrar sesión</button>
+                        </form>
+                    </div>
+                </div>
+            </div>';
+        }else{
+            echo '<div class="form-structor medio">
+                <div class="signup">
+                    <h2 class="form-title" id="signup">Registrarse</h2>
+                    <div class="form-holder">
+                        <form action="registrar-nuevo-usuario.php" method="POST">
+                            <input type="text" class="form-control" name="usuario_nombre" id="inputUser" placeholder="Usuario">
+                            <input type="email" class="form-control" id="inputEmail" name="usuario_email" placeholder="Email...">
+                            <input type="password" class="form-control" name="usuario_password" id="inputPassword" placeholder="Password">
+                            <input type="password" class="form-control" id="inputPassword2" name="password2" placeholder="Repite la password...">
+                            <button type="submit" class="btn btn-primary submit-btn" name="nuevo_usuario" submit-btn">Crear cuenta</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="login slide-up">
+                    <div class="center">
+                        <h2 class="form-title" id="login">Iniciar sesión</h2>
+                        <div class="form-holder">
+                        <form action="inicio-sesion.php" method="POST">
+                            <input type="text" class="form-control" name="usuario_nombre" id="inputUser" placeholder="Usuario">
+                            <input type="password" class="form-control" name="usuario_password" id="inputPassword" placeholder="Password">
+                            <button type="submit" class="btn btn-primary submit-btn">Crear cuenta</button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>';
+        }
+    
+    echo '</div>';
 echo '</nav>';
+
+echo '<script type="text/javascript" src="js/formulario-modal.js"></script>';
 ?>
 
     
