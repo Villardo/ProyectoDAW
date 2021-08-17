@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Servicios</title>
+    <title>Centro estético Carla María Villar Cuadrado - Servicios</title>
     <?php include 'librerias.php' ?>
 </head>
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi carrito</title>
+    <title>Centro estético Carla María Villar Cuadrado - Mi carrito</title>
     <?php include 'librerias.php' ?>
 </head>
 
