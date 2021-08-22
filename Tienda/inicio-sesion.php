@@ -15,9 +15,9 @@ if (isset($_POST['usuario_nombre'])) {
         }
     }
 
-    if (isset($_SESSION["usuario_id"])) {
-        header("Location:inicio.php");
-    } else {
-        header("Location:iniciar-sesion.php");
+    if (!($_SESSION["usuario_id"] > 0 && isset($_SESSION["usuario_id"]))) {
+        $_SESSION["flag_login_fail"] = true;
     }
+
+    header("Location:inicio.php");
 }

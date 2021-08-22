@@ -1,19 +1,19 @@
 //String valido de 3 a 16 caracteres
-let regex_nombre = /^[a-z0-9_-]{3,16}$/;
+const nombre = document.getElementById("new_inputUser");
+const regex_nombre = /^[a-z0-9_-]{3,16}$/;
+const mensaje1 = "El nombre de usuario tiene que ser una cadena valida de 3 a 16 caracteres";
 
 //Email válido
-let regex_email = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
+const email = document.getElementById("new_inputEmail");
+const regex_email = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
+const mensaje2 = "El email tiene que ser válido";
 
 //1 minuscula, 1 mayuscula, 1 numero y al menos longitud de 8
-let regex_password = /(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$/;
-
-const nombre = document.getElementById("new_inputUser");
-const email = document.getElementById("new_inputEmail");
 const password = document.getElementById("new_inputPassword1");
-const errores = document.getElementById('errores');
-const mensaje1 = "El nombre de usuario tiene que ser una cadena valida de 3 a 16 caracteres";
-const mensaje2 = "El email tiene que ser válido";
+const regex_password = /(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$/;
 const mensaje3 = "La password tiene que tener 1 minuscula, 1 mayuscula, 1 numero y al menos longitud de 8";
+
+const errores = document.getElementById('errores');
 
 let mensajesError = [];
 

@@ -22,5 +22,8 @@ echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animat
   
 //<!-- favicon -->
 echo '<link rel="icon" href="images/favicon.ico" type="image/png">';
+
+//<!-- sweetalerts -->
+echo '<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
 ?>
 
