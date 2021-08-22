@@ -5,7 +5,7 @@ session_start();
 include 'variables.php';
 
 echo '<script type="text/javascript" src="js/navbar.js"></script>';
-if (isset($_SESSION["usuario_id"]) && isset($_SESSION["usuario_nombre"])) {
+if (isset($_SESSION["usuario_nombre"])) {
     $nombre_de_usuario = $_SESSION["usuario_nombre"];
 }
 
@@ -68,11 +68,11 @@ echo '<nav class="navbar navbar-expand-sm navbar-light bg-light">';
                     <h2 class="form-title" id="signup">Registrarse</h2>
                     <div class="form-holder">
                         <form action="registrar-nuevo-usuario.php" method="POST">
-                            <input type="text" class="form-control" name="usuario_nombre" id="inputUser" placeholder="Usuario">
-                            <input type="email" class="form-control" id="inputEmail" name="usuario_email" placeholder="Email...">
-                            <input type="password" class="form-control" name="usuario_password" id="inputPassword" placeholder="Password">
-                            <input type="password" class="form-control" id="inputPassword2" name="password2" placeholder="Repite la password...">
-                            <button type="submit" class="btn btn-primary submit-btn" name="nuevo_usuario" submit-btn">Crear cuenta</button>
+                            <input type="text" class="form-control" name="usuario_nombre" id="new_inputUser" placeholder="Usuario...">
+                            <input type="email" class="form-control" id="new_inputEmail" name="usuario_email" placeholder="Email...">
+                            <input type="password" class="form-control" name="new_usuario_password1" id="new_inputPassword1" placeholder="Password">
+                            <input type="password" class="form-control" name="new_usuario_password2" id="new_inputPassword2" placeholder="Repite la password...">
+                            <button type="submit" id="crear" class="btn btn-primary submit-btn" name="nuevo_usuario" submit-btn">Crear cuenta</button>
                         </form>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ echo '<nav class="navbar navbar-expand-sm navbar-light bg-light">';
                         <form action="inicio-sesion.php" method="POST">
                             <input type="text" class="form-control" name="usuario_nombre" id="inputUser" placeholder="Usuario">
                             <input type="password" class="form-control" name="usuario_password" id="inputPassword" placeholder="Password">
-                            <button type="submit" class="btn btn-primary submit-btn">Crear cuenta</button>
+                            <button type="submit" id="iniciar" class="btn btn-primary submit-btn">Iniciar sesión</button>
                         </form>
                     </div>
                     </div>
@@ -93,7 +93,7 @@ echo '<nav class="navbar navbar-expand-sm navbar-light bg-light">';
     
     echo '</div>';
 echo '</nav>';
-
+echo '<div id="errores"></div>';
 echo '<script type="text/javascript" src="js/formulario-modal.js"></script>';
 ?>
 

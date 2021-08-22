@@ -20,4 +20,4 @@ $latitud = 42.2133932810003;
 $longitud = -8.692993569571495;
 $establecimiento = "colegio+montecastelo";
 $tuMensajeWhatsapp = "Hola, quería concertar una cita si fuera posible";
-$latitud = "";
+$salt = "ad2R.F5x0-f";
