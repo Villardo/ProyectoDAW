@@ -18,6 +18,7 @@ if (isset($_POST['agregar_producto'])) {
         ];
     }
     $_SESSION['items_carrito'][] = $arrayCarrito;
+    array_push($_SESSION['nombre'][],$arrayCarrito);
     $_SESSION['nuevo_producto'] = $_POST['producto_cantidad'];
 }
 

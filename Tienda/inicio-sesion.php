@@ -10,12 +10,12 @@ if (isset($_POST['usuario_nombre'])) {
 
     foreach ($pdo->query($sql) as $row) {
         if (is_array($row)) {
-            $_SESSION["usuario_id"] = $row['usuario_id'];
-            $_SESSION["usuario_nombre"] = $row['usuario_nombre'];
+            $_SESSION["id"] = $row['usuario_id'];
+            $_SESSION["nombre"] = $row['usuario_nombre'];
         }
     }
 
-    if (!($_SESSION["usuario_id"] > 0 && isset($_SESSION["usuario_id"]))) {
+    if (!($_SESSION["id"] > 0 && isset($_SESSION["id"]))) {
         $_SESSION["flag_login_fail"] = true;
     }
 

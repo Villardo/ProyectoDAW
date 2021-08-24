@@ -5,8 +5,10 @@ session_start();
 include 'variables.php';
 
 echo '<script type="text/javascript" src="js/navbar.js"></script>';
-if (isset($_SESSION["usuario_id"]) && isset($_SESSION["usuario_nombre"])) {
-    $nombre_de_usuario = $_SESSION["usuario_nombre"];
+if (isset($_SESSION["nombre"])) {
+    $nombre_de_usuario = $_SESSION["nombre"];
+}else{
+    $nombre_de_usuario = $texto_navbar_mi_cuenta;
 }
 
 echo '<nav class="navbar navbar-expand-sm navbar-light bg-light">';
@@ -40,7 +42,7 @@ echo '<nav class="navbar navbar-expand-sm navbar-light bg-light">';
 
             echo '<li class="nav-item mr-5">';
                 echo '<a class="nav-link btn-formulario" href="#" id="navbar-cuenta" role="button"> ';                                            
-                    if (isset($_SESSION["usuario_nombre"])) {
+                    if (isset($_SESSION["nombre"])) {
                         echo $nombre_de_usuario;
                     }else{
                         echo $texto_navbar_mi_cuenta;                          
@@ -51,7 +53,7 @@ echo '<nav class="navbar navbar-expand-sm navbar-light bg-light">';
     echo '</div>';
     echo '<div class="formulario-modal" id="modalUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">';
 
-        if (isset($_SESSION["usuario_nombre"])) {
+        if (isset($_SESSION["nombre"])) {
             echo '<div class="form-structor medio">
                 <div class="signup">
                     <h2 class="form-title" id="cerrar-sesion">Está seguro de que quiere desconectarse ?</h2>
@@ -67,12 +69,13 @@ echo '<nav class="navbar navbar-expand-sm navbar-light bg-light">';
                 <div class="signup">
                     <h2 class="form-title" id="signupTitle">Registrarse</h2>
                     <div class="form-holder">
-                        <form action="registrar-nuevo-usuario.php" method="POST">
+                        <form>
                             <input type="text" class="form-control" name="usuario_nombre" id="new_inputUser" placeholder="Usuario">
                             <input type="email" class="form-control" id="new_inputEmail" name="usuario_email" placeholder="Email...">
                             <input type="password" class="form-control" name="new_usuario_password1" id="new_inputPassword1" placeholder="Password">
                             <input type="password" class="form-control" name="new_usuario_password2" id="new_inputPassword2" placeholder="Repite la password...">
-                            <button type="submit" class="btn btn-primary submit-btn" name="nuevo_usuario" submit-btn">Crear cuenta</button>
+                            <button type="button" class="btn btn-primary submit-btn" id="btnCrear" name="nuevo_usuario">Crear cuenta</button>
+                            <div id="errores"></div>
                         </form>
                     </div>
                 </div>

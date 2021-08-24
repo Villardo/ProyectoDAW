@@ -1,7 +1,8 @@
 <?php
 session_start();
-unset($_SESSION["usuario_id"]);
-unset($_SESSION["usuario_nombre"]);
+
+unset($_SESSION["id"]);
+unset($_SESSION["nombre"]);
 
 header("Location:inicio.php");
 ?>

@@ -30,7 +30,7 @@
                 echo '</tr>';
             echo '</table>';
             } 
-            if (!isset($_SESSION['usuario_nombre'])) { 
+            if (!isset($_SESSION['nombre'])) { 
             echo '<table class="table">';
                 echo ' <tr>';
                     echo '<td>';
@@ -39,7 +39,7 @@
                 echo '</tr>';
             echo '</table>';
             }
-            if (isset($_SESSION['items_carrito']) && count($_SESSION['items_carrito']) > 0 && isset($_SESSION['usuario_nombre'])) { 
+            if (isset($_SESSION['items_carrito']) && count($_SESSION['items_carrito']) > 0 && isset($_SESSION['nombre'])) { 
             echo '<table class="table">';
                 echo '<thead>';
                     echo '<tr>';
@@ -56,10 +56,6 @@
 
                 foreach ($_SESSION['items_carrito'] as $key => $item) {
                     
-                    // if (array_key_exists($item['producto_nombre'] , $_SESSION['items_carrito'])) {
-                    //     $item['producto_cantidad']
-                    // }
-
                     $total = $item['producto_precio'] * $item['producto_cantidad'];
                     $precioTotalProductos += $total;
                     $numeroItems += $item['producto_cantidad'];

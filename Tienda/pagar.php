@@ -9,7 +9,7 @@ if (isset($_POST['pagar'])) {
 
     // foreach ($_SESSION['items_carrito'] as $key => $value) {
             
-    //     $venta_usuario_id = $_SESSION['usuario_id'];
+    //     $venta_usuario_id = $_SESSION['id'];
     //     $venta_producto_id = $row['producto_id'];
     //     $venta_producto_cantidad = $row['producto_id'];
     //     $venta_precio_final = $_SESSION['precio_final'];
@@ -19,7 +19,7 @@ if (isset($_POST['pagar'])) {
     $statement = $pdo->prepare("INSERT INTO ventas (venta_usuario_id, venta_producto_id, venta_producto_cantidad, venta_precio_final) VALUES (?, ?, ?, ?)");
     $statement->execute(array($venta_usuario_id, $venta_producto_id, $venta_producto_cantidad, $venta_precio_final));
 
-    $_SESSION["usuario_nombre"] = $usuario;
+    $_SESSION["nombre"] = $usuario;
 }
 
 $pdo = null;

@@ -43,7 +43,7 @@
                             echo '<input type="number" name="producto_cantidad" id="productQty" class="form-control" placeholder="Cantidad" min="1" value="1">';
                             echo '<input type="hidden" name="producto_id" value="'. $row['producto_id'] .'">';
                             echo '<div class="input-group-append">';
-                                if (isset($_SESSION["usuario_nombre"])) {
+                                if (isset($_SESSION["nombre"])) {
                                     echo '<button type="submit" class="btn btn-primary" name="agregar_producto" value="agregar_producto">Añadir al carrito</button>';
                                 }else {
                                     echo '<button type="submit" class="btn btn-primary tooltip" name="agregar_producto" value="agregar_producto" disabled>
