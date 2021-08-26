@@ -11,19 +11,34 @@ if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['password1
     $email = $_POST['email'];
     $fecha_registro = date("Y-m-d H:i:s");
 
-    $statement = $pdo->prepare("INSERT INTO usuarios (usuario_nombre, usuario_password, usuario_email, usuario_fecha_registro) VALUES (?, ?, ?, ?)");
+    $sentencia = $pdo->prepare("SELECT * FROM usuarios where usuario_nombre = ?");
 
-    if ($statement->execute(array($usuario, $usuario_password_hassed, $email, $fecha_registro))) {
-        $_SESSION["nombre"] = $usuario;
+    if ($sentencia->execute(array($usuario))) {
 
-        echo true;
+        $resultado = $sentencia->fetchAll();
+
+        if (count($resultado) > 0) {
+            echo "sqlError";
+            return;
+        }else {
+            $statement = $pdo->prepare("INSERT INTO usuarios (usuario_nombre, usuario_password, usuario_email, usuario_fecha_registro) 						VALUES (?, ?, ?, ?)");
+ 
+            if ($statement->execute(array($usuario, $usuario_password_hassed, $email, $fecha_registro))) {
+                $_SESSION["nombre"] = $usuario;
+
+                echo "userAdded";
+                return;
+                
+            } else {
+                echo "error al añadir el usuario";
+                return;
+            }
+        }
+    } else {
+        echo "error al buscar el usuario";
         return;
     }
-    echo false;
-    return ;
-    //$statement->execute(array($usuario, $usuario_password_hassed, $email, $fecha_registro));
 }
 $pdo = null;
-
-echo false;
+echo "error";
 return;

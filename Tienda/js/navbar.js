@@ -2,7 +2,7 @@
 let mensajesError = [];
 
 //String valido de 3 a 16 caracteres
-const regex_nombre = /^[a-z0-9_-]{3,16}$/;
+const regex_nombre = /^[A-Za-z][A-Za-z0-9_]{3,15}$/;
 
 //Email válido
 const regex_email = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
@@ -14,6 +14,7 @@ const mensaje1 = "El nombre de usuario tiene que ser una cadena valida de 3 a 16
 const mensaje2 = "El email tiene que ser válido y no puede estar vacío";
 const mensaje3 = "La password tiene que tener 1 minuscula, 1 mayuscula, 1 numero y al menos longitud de 8 y no estar vacío";
 const mensaje4 = "Las passwords no coinciden";
+const mensaje5 = "Los campos no pueden estar vacios";
 
 
 jQuery(function ($) {
@@ -24,36 +25,35 @@ jQuery(function ($) {
     }
   });
 
-  mensajesError = [];
-
   $("#btnCrear").click(function () {
+
+    mensajesError = [];
+
     let nombre = document.getElementById("new_inputUser").value;
     let emailForm = document.getElementById("new_inputEmail").value;
     let password1 = document.getElementById("new_inputPassword1").value;
     let password2 = document.getElementById("new_inputPassword2").value;
 
-    if (!regex_nombre.test(nombre)) {
-      mensajesError.push(mensaje1);
+    if (!regex_nombre.test(nombre) || nombre.length == 0) {
+      mensajesError.push(mensaje1 + "<br>");
     }
-    if (!regex_email.test(emailForm) && emailForm.length == 0) {
-      mensajesError.push(mensaje2);
+    if (!regex_email.test(emailForm) || emailForm.length == 0) {
+      mensajesError.push(mensaje2 + "<br>");
     }
-    if (!regex_password.test(password1) && password1.length == 0) {
-      mensajesError.push(mensaje3);
+    if (!regex_password.test(password1) || password1.length == 0) {
+      mensajesError.push(mensaje3 + "<br>");
     }
     if (password1 !== password2) {
-      mensajesError.push(mensaje4);
+      mensajesError.push(mensaje4 + "<br>");
+    }
+    if (nombre.length == 0 && emailForm.length == 0 && password1.length == 0 && password2.length == 0) {
+      mensajesError = mensaje5;
     }
 
     if (mensajesError.length > 0) {
-      console.log(mensajesError);
-      console.log(mensajesError.values());
-
-
       Swal.fire({
+        html: mensajesError,
         icon: "error",
-        title: "Error",
-        text: mensajesError
       })
     } else {
       $.ajax({
@@ -63,14 +63,27 @@ jQuery(function ($) {
           nombre, email: emailForm, password1
         },
         success: function (response) {
-          if (response) {
-            window.location.reload();
-          } else {
-            Swal.fire({
-              icon: "error",
-              title: "Vaya...",
-              text: "Parece que ha habido un problema al registando un nuevo usuario"
-            })
+          console.log(response);
+          switch (response.toString()) {
+            case "sqlError":
+              Swal.fire({
+                icon: "error",
+                text: "Ya existe el usuario en la base de datos"
+              })
+              break;
+            case "userAdded":
+              window.location.reload();
+              break;
+            case "error":
+              Swal.fire({
+                icon: "error",
+                title: "Vaya...",
+                text: "Parece que ha habido un problema al registrando un nuevo usuario"
+              })
+              break;
+            default:
+              console.log("error");
+              break;
           }
         },
       });
