@@ -12,6 +12,18 @@
     <?php include 'infobar.php' ?>
     <?php include 'navbar.php' ?>
     <?php
+
+    $arrayUsuarios = $_SESSION['array_usuarios'];
+    $usuario_logueado = $_SESSION['usuario_logueado'];
+    
+    foreach ($arrayUsuarios as $usuario) {
+        if ($usuario['id'] == $usuario_logueado['id']) {
+            array_push($arrayUsuarios, $usuario_logueado);
+        }
+    }
+
+    var_dump($_SESSION);
+
     $numRegistros = 6;
     $pagina = 1;
 
@@ -66,15 +78,15 @@
 
     echo '</div>';
     echo '<nav aria-label="Page navigation example">';
-    echo '<ul class="pagination justify-content-center mt-3">';
-    for ($i = 0; $i < $totalPaginas; $i++) {
-        if (($i + 1) == $pagina) {
-            echo '<li class="page-item active"><a class="page-link" href="productos.php?pag=' . ($i + 1) . '">' . ($i + 1) . '</a></li>';
-        } else {
-            echo '<li class="page-item"><a class="page-link" href="productos.php?pag=' . ($i + 1) . '">' . ($i + 1) . '</a></li>';
+        echo '<ul class="pagination justify-content-center mt-3">';
+        for ($i = 0; $i < $totalPaginas; $i++) {
+            if (($i + 1) == $pagina) {
+                echo '<li class="page-item active"><a class="page-link" href="productos.php?pag=' . ($i + 1) . '">' . ($i + 1) . '</a></li>';
+            } else {
+                echo '<li class="page-item"><a class="page-link" href="productos.php?pag=' . ($i + 1) . '">' . ($i + 1) . '</a></li>';
+            }
         }
-    }
-    echo '</ul>';
+        echo '</ul>';
     echo '</nav>';
     echo '<script type="text/javascript" src="js/productos.js"></script>';
     ?>

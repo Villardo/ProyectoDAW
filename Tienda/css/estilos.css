@@ -189,6 +189,7 @@ html, body {
 .tooltip {
     position: relative;
     display: inline-block;
+    z-index: -1;
     border-bottom: 1px dotted black;
 }
 
@@ -231,19 +232,13 @@ html, body {
 
 .formulario-modal {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
+    z-index: 3;
     padding-top: 100px;
-    /* Location of the box */
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
     height: 100%;
-    /* Full height */
     background-color: rgba(61, 59, 61, 0.8);
     overflow: hidden;
 }

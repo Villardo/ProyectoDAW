@@ -21,40 +21,54 @@
                 <form class="mt-3 contacto-form" action="enviar-mail.php" method="POST">
                     <div class="row">
                         <div class="col-6">
-                            <input type="text" class="form-control" id="contacto_nombre" name="contacto_nombre" placeholder="Nombre">
+                            <?php
+                            if (isset($_SESSION['usuario_logueado']["nombre"])) {
+                                echo '<input type="text" class="form-control" id="contacto_nombre" name="contacto_nombre" placeholder="Nombre" value="' . $_SESSION['usuario_logueado']["nombre"] . '" disabled> ';
+                            } else {
+                                echo '<input type="text" class="form-control" id="contacto_nombre" name="contacto_nombre" placeholder="Nombre"> ';
+                            }
+                            ?>
                         </div>
+
                         <div class="col-6">
                             <input type="tel" class="form-control" id="contacto_telf" name="contacto_telf" placeholder="Teléfono (opcional)">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <input type="email" class="form-control" id="contacto_email" name="contacto_email" placeholder="Email">
-
+                            <?php
+                            if (isset($_SESSION['usuario_logueado']["email"])) {
+                                echo '<input type="email" class="form-control" id="contacto_email" name="contacto_email" placeholder="Email" value="' . $_SESSION['usuario_logueado']["email"] . '" disabled> ';
+                            } else {
+                                echo '<input type="email" class="form-control" id="contacto_email" name="contacto_email" placeholder="Email"> ';
+                            }
+                            ?>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-12">
-                            <textarea id="txtid" class="form-control" name="contacto_texto" rows="4" cols="50" maxlength="200"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group form-check pt-4">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Acepto enviar mis datos...</label>
+                            <div class="form-group">
+                                <label for="select">Razon:</label>
+                                <select class="form-control" id="select_razon">
+                                    <option value="1" selected="selected">Sugerencias</option>
+                                    <option value="2"> Tengo un problema con un pedido</option>
+                                    <option value="3">Quisiera trabajar con vosotros</option>
+                                    <option value="4">Otros...</option>
+                                </select>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
+                        <div class="col-12 pb-2">
+                            <textarea id="txtarea" class="form-control" name="contacto_texto" rows="4" cols="50" maxlength="200"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-12 btn-block">
                             <button type="submit" class="btn btn-primary btn-block">Enviar</button>
                         </div>
                     </div>
-
                 </form>
             </div>
             <div class="col-md-6 col-sm-12 googlemaps">
@@ -63,6 +77,7 @@
         </div>
     </div>
     <?php include 'footer.php' ?>
+    <script type="text/javascript" src="js/contacto.js"></script>
 </body>
 
 </html>

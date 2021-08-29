@@ -11,8 +11,9 @@
 <body>
     <?php include 'infobar.php' ?>
     <?php include 'navbar.php' ?>
+    
     <?php
-    var_dump($_SESSION);
+    // var_dump($_SESSION);
     ?>
 
     <div class="container-fluid">

@@ -5,8 +5,8 @@ session_start();
 include 'variables.php';
 
 echo '<script type="text/javascript" src="js/navbar.js"></script>';
-if (isset($_SESSION["nombre"])) {
-    $nombre_de_usuario = $_SESSION["nombre"];
+if (isset($_SESSION['usuario_logueado']["nombre"])) {
+    $nombre_de_usuario = $_SESSION['usuario_logueado']["nombre"];
 }else{
     $nombre_de_usuario = $texto_navbar_mi_cuenta;
 }
@@ -42,7 +42,7 @@ echo '<nav class="navbar navbar-expand-sm navbar-light bg-light">';
 
             echo '<li class="nav-item mr-5">';
                 echo '<a class="nav-link btn-formulario" href="#" id="navbar-cuenta" role="button"> ';                                            
-                    if (isset($_SESSION["nombre"])) {
+                    if (isset($_SESSION['usuario_logueado']["nombre"])) {
                         echo $nombre_de_usuario;
                     }else{
                         echo $texto_navbar_mi_cuenta;                          
@@ -53,7 +53,7 @@ echo '<nav class="navbar navbar-expand-sm navbar-light bg-light">';
     echo '</div>';
     echo '<div class="formulario-modal" id="modalUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">';
 
-        if (isset($_SESSION["nombre"])) {
+        if (isset($_SESSION['usuario_logueado']["nombre"])) {
             echo '<div class="form-structor medio">
                 <div class="signup">
                     <h2 class="form-title" id="cerrar-sesion">Está seguro de que quiere desconectarse ?</h2>

@@ -2,6 +2,7 @@
 session_start();
 
 require_once('conectar-db.php');
+
 $sql = "SELECT * FROM productos WHERE producto_id = " . $_POST['producto_id'];
 
 if (isset($_POST['agregar_producto'])) {
@@ -16,21 +17,15 @@ if (isset($_POST['agregar_producto'])) {
             'producto_ruta' => $row['producto_ruta'],
             'producto_cantidad' => $_POST['producto_cantidad']
         ];
-        $_SESSION['items_carrito'][] = $arrayCarrito;
+
+        if (in_array($arrayCarrito['producto_id'],$_SESSION['usuario_logueado']['carrito'])) {
+            $_SESSION['usuario_logueado']['carrito']['producto_cantidad']=$_SESSION['usuario_logueado']['carrito']['producto_cantidad']+$_POST['producto_cantidad'];
+        }else{
+            $_SESSION['usuario_logueado']['carrito'][] = $arrayCarrito;
+        }
     }
 
-    // foreach ($_SESSION['array_usuarios'] as $usuario) {
-    //     // if ($usuario["id"]==) {
-    //     //     # code...
-    //     // }
-    // }
-    isset($_SESSION['array_usuarios']['id']);
-
-    // array_push($_SESSION['nombre'],$_SESSION['items_carrito']);
-    // $_SESSION['nuevo_producto'] = $_POST['producto_cantidad'];
-
-   
-
+    $_SESSION['nuevo_producto'] = $_POST['producto_cantidad'];
 }
 
 $pdo = null;

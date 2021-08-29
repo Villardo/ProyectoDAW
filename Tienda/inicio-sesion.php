@@ -13,6 +13,7 @@ if (isset($_POST['usuario_nombre'])) {
             $usuario_logueado = array(
                 'id' => $row['usuario_id'],
                 'nombre' => $row['usuario_nombre'],
+                'email' => $row['usuario_email'],
                 'carrito' => []
             );
         }
@@ -40,7 +41,7 @@ if (isset($_POST['usuario_nombre'])) {
 
     $_SESSION['usuario_logueado'] = $usuario_logueado;
 
-    if (!($_SESSION["id"] > 0 && isset($_SESSION["id"]))) {
+    if (!($_SESSION['usuario_logueado']["id"] > 0 && isset($_SESSION['usuario_logueado']["id"]))) {
         $_SESSION["flag_login_fail"] = true;
     }
 

@@ -64,15 +64,31 @@ jQuery(function ($) {
         },
         success: function (response) {
           console.log(response);
-          switch (response.toString()) {
+          switch (response) {
             case "sqlError":
               Swal.fire({
                 icon: "error",
-                text: "Ya existe el usuario en la base de datos"
+                text: "Ya existe un usuario en la base de datos con ese nombre de usuario o email"
               })
               break;
             case "userAdded":
-              window.location.reload();
+              const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1500,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                },didClose: (toast) => {
+                  location.reload();
+                }
+              })
+              Toast.fire({
+                icon: 'success',
+                title: "Usuario registrado con éxito"
+              })
               break;
             case "error":
               Swal.fire({

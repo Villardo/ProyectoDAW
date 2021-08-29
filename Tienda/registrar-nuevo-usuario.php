@@ -11,9 +11,9 @@ if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['password1
     $email = $_POST['email'];
     $fecha_registro = date("Y-m-d H:i:s");
 
-    $sentencia = $pdo->prepare("SELECT * FROM usuarios where usuario_nombre = ?");
+    $sentencia = $pdo->prepare("SELECT * FROM usuarios where usuario_nombre = ? || usuario_email = ?");
 
-    if ($sentencia->execute(array($usuario))) {
+    if ($sentencia->execute(array($usuario,$email))) {
 
         $resultado = $sentencia->fetchAll();
 
@@ -24,18 +24,16 @@ if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['password1
             $statement = $pdo->prepare("INSERT INTO usuarios (usuario_nombre, usuario_password, usuario_email, usuario_fecha_registro) 						VALUES (?, ?, ?, ?)");
  
             if ($statement->execute(array($usuario, $usuario_password_hassed, $email, $fecha_registro))) {
-                $_SESSION["nombre"] = $usuario;
-
                 echo "userAdded";
                 return;
                 
             } else {
-                echo "error al añadir el usuario";
+                echo "error";
                 return;
             }
         }
     } else {
-        echo "error al buscar el usuario";
+        echo "error";
         return;
     }
 }

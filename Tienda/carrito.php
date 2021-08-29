@@ -13,15 +13,16 @@
     <?php include 'navbar.php' ?>
 
     <?php
+    $usuario_logueado = $_SESSION['usuario_logueado'];
+
     if (isset($_GET['action'], $_GET['item']) && $_GET['action'] == 'remove') {
-        unset($_SESSION['items_carrito'][$_GET['item']]);
-        header('location:carrito.php');
+        unset($usuario_logueado['carrito'][$_GET['item']]);
         exit();
     }
 
     echo '<div class="row">';
         echo '<div class="col-md-12">';
-            if (empty($_SESSION['items_carrito'])) { 
+            if (empty($usuario_logueado['carrito'])) { 
             echo '<table class="table">';
                 echo ' <tr>';
                     echo '<td>';
@@ -30,16 +31,7 @@
                 echo '</tr>';
             echo '</table>';
             } 
-            if (!isset($_SESSION['nombre'])) { 
-            echo '<table class="table">';
-                echo ' <tr>';
-                    echo '<td>';
-                        echo '<p>No has iniciado sesión</p>';
-                    echo '</td>';
-                echo '</tr>';
-            echo '</table>';
-            }
-            if (isset($_SESSION['items_carrito']) && count($_SESSION['items_carrito']) > 0 && isset($_SESSION['nombre'])) { 
+            if (isset($usuario_logueado['carrito']) && count($usuario_logueado['carrito']) > 0 && isset($usuario_logueado['nombre'])) { 
             echo '<table class="table">';
                 echo '<thead>';
                     echo '<tr>';
@@ -54,7 +46,7 @@
                 $precioTotalProductos = 0;
                 $numeroItems = 0;
 
-                foreach ($_SESSION['items_carrito'] as $key => $item) {
+                foreach ($usuario_logueado['carrito'] as $key => $item) {
                     
                     $total = $item['producto_precio'] * $item['producto_cantidad'];
                     $precioTotalProductos += $total;
@@ -86,6 +78,7 @@
                 
                 echo '<tr class="border-top border-bottom">';
                     echo '<td><button class="btn btn-danger btn-sm" id="vaciarCarrito">Vaciar carrito</button></td>';
+                   
                     echo '<td></td>';
                     echo '<td>';
                         echo '<strong>';

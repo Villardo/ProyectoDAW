@@ -1,4 +1,3 @@
-
 $(document).ready(inicio);
 
 function inicio() {
@@ -7,7 +6,7 @@ function inicio() {
         let cantidadActualizada = $(this).val();
         $.ajax({
             type: 'POST',
-            url: 'ajax.php',
+            url: 'carrito-ajax.php',
             dataType: 'json',
             data: {
                 action: 'actualizaCantidad',
@@ -26,10 +25,10 @@ function inicio() {
     $('#vaciarCarrito').click(function () {
         $.ajax({
             type: 'POST',
-            url: 'ajax.php',
+            url: 'carrito-ajax.php',
             dataType: 'json',
             data: {
-                action: 'empty',
+                action: 'vaciarCarrito',
                 empty_cart: true
             },
             success: function (data) {
