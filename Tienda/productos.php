@@ -13,12 +13,14 @@
     <?php include 'navbar.php' ?>
     <?php
 
-    $arrayUsuarios = $_SESSION['array_usuarios'];
-    $usuario_logueado = $_SESSION['usuario_logueado'];
-    
-    foreach ($arrayUsuarios as $usuario) {
-        if ($usuario['id'] == $usuario_logueado['id']) {
-            array_push($arrayUsuarios, $usuario_logueado);
+    if (isset($_SESSION['usuario_logueado'])) {
+        $arrayUsuarios = $_SESSION['array_usuarios'];
+        $usuario_logueado = $_SESSION['usuario_logueado'];
+        
+        foreach ($arrayUsuarios as $usuario) {
+            if ($usuario['id'] == $usuario_logueado['id']) {
+                array_push($arrayUsuarios, $usuario_logueado);
+            }
         }
     }
 

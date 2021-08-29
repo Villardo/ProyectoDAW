@@ -49,9 +49,9 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="select">Razon:</label>
-                                <select class="form-control" id="select_razon">
+                                <select class="form-control" name="contacto_razon" id="select_razon">
                                     <option value="1" selected="selected">Sugerencias</option>
-                                    <option value="2"> Tengo un problema con un pedido</option>
+                                    <option value="2">Tengo un problema con un pedido</option>
                                     <option value="3">Quisiera trabajar con vosotros</option>
                                     <option value="4">Otros...</option>
                                 </select>
