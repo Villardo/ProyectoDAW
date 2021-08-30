@@ -23,7 +23,7 @@ if (
     ))) {
 
         $sql = "SELECT * FROM facturacion WHERE id_usuario='" . $_SESSION['usuario_logueado']['id'];
-        $id_facturacion = null;
+        $id_facturacion = 0;
 
         foreach ($pdo->query($sql) as $row) {
             if (is_array($row)) {
@@ -36,6 +36,7 @@ if (
                 $item['producto_id'], $item['producto_cantidad'],
                 $_SESSION['usuario_logueado']['id'], $_SESSION["precio_final"], $id_facturacion
             ))) {
+                unset($_SESSION['usuario_logueado']["carrito"]);
                 echo "venta";
                 return;
             } else {

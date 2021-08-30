@@ -11,58 +11,68 @@
 <body>
     <?php include 'infobar.php' ?>
     <?php include 'navbar.php' ?>
-    
+
     <?php
     // var_dump($_SESSION);
     ?>
 
     <div class="container-fluid">
         <div class="row">
-            <div id="carouselImagen" class="carousel slide col-12 pt-2 grab d-block w-100" data-ride="carousel" data-interval="false">
+            <div id="carouselImagen" class="carousel slide col-12 pt-2 grab d-block w-100" data-ride="carousel">
+                <!-- <div id="carouselImagen" class="carousel slide col-12 pt-2 grab d-block w-100" data-ride="carousel" data-interval="false">
                 <div id="carousel-controls">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselImagen" data-slide-to="0" class="active"></li>
                         <li data-target="#carouselImagen" data-slide-to="1"></li>
                         <li data-target="#carouselImagen" data-slide-to="2"></li>
                     </ol>
-                </div>
+                </div> -->
                 <div class="carousel-inner img-fluid d-block w-100">
-                    <div class="carousel-item active">
+                    <div class="carousel-item active" data-interval="5000">
                         <img src="images/foto1.jpg" class="d-block w-100" alt="...">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item" data-interval="5000">
                         <img src="images/foto6.jpg" class="d-block w-100" alt="...">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item" data-interval="5000">
                         <img src="images/foto4.jpg" class="d-block w-100" alt="...">
                     </div>
+                    <a class="carousel-control-prev" href="#carouselImagen" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselImagen" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="row eslogan text-center">
-            <div class="col-12 blockquote eslogan-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ut esse provident tempore!
+    </div>
+    <div class="row eslogan text-center">
+        <div class="col-12 blockquote eslogan-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ut esse provident tempore!
+        </div>
+    </div>
+    <div class="noticias text-center">
+        <div class="row">
+            <div class="col-md-6 col-xs-12 descuento">
+                <h1 class="display-4 ">50% OFF</h1>
+            </div>
+            <div class="col-md-6 col-xs-12 descuento">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis ducimus nihil accusantium "MITADPRECIO"
             </div>
         </div>
-        <div class="noticias text-center">
-            <div class="row">
-                <div class="col-md-6 col-xs-12 descuento">
-                    <h1 class="display-4 ">50% OFF</h1>
-                </div>
-                <div class="col-md-6 col-xs-12 descuento">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis ducimus nihil accusantium "MITADPRECIO"
-                </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-6 col-xs-12 descuento">
+                Llevate un descuento de 10€ en tu primera compra con un valor superior a 50€ al introducir "PRIMERACOMPRA"
             </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-6 col-xs-12 descuento">
-                    Llevate un descuento de 10€ en tu primera compra con un valor superior a 50€ al introducir "PRIMERACOMPRA"
-                </div>
-                <div class="col-md-6 col-xs-12 descuento">
-                    <h1 class="display-4 ">-10 €</h1>
-                </div>
+            <div class="col-md-6 col-xs-12 descuento">
+                <h1 class="display-4 ">-10 €</h1>
             </div>
         </div>
+    </div>
     </div>
     <?php include 'footer.php' ?>
     <script type="text/javascript" src="js/inicio.js"></script>

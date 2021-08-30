@@ -1,15 +1,17 @@
 
 $(document).ready(function () {
-    $(".sobre-mi-icono")
-        .mouseenter(function () {
+    $(".sobre-mi-icono").hover(
+        function () {
             let img2= $(this).data('ruta');
-            document.getElementById('cara').src = img2;         
+            document.getElementById('cara').src = img2;
             $('#cara').addClass("animate__animated animate__fadeIn");
-
-        })
-        .mouseleave(function () {
+            $('#cara').on('animationend webkitAnimationEnd oAnimationEnd',function(){
+                $('#cara').removeClass("animate__animated animate__fadeIn");
+            });
+        },
+        function () {
             document.getElementById('cara').src = "images/svg/cara.svg";
-            $('#cara').removeClass("animate__animated animate__fadeIn");
+            $('#cara').addClass("animate__animated animate__fadeIn")
         });
 });
 
