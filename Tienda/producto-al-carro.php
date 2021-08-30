@@ -6,7 +6,6 @@ require_once('conectar-db.php');
 $sql = "SELECT * FROM productos WHERE producto_id = " . $_POST['producto_id'];
 
 if (isset($_POST['agregar_producto'])) {
-
     foreach ($pdo->query($sql) as $row) {
 
         $arrayCarrito = [

@@ -25,6 +25,11 @@ $("#card-number").focus(function () {
 });
 
 $("#tramitar").click(function () {
+    var nombre = $("#nombre").val();
+    var apellidos = $("#apellidos").val();
+    var direccion = $("#direccion").val();
+    var pais = $("#pais").val();
+    var codigoPostal = $("#codpostal").val();
     var cardnumber = $("#card-number").val();
     var cardholder = $("#card-holder").val();
     var cardmonth = $("#card-month").val();
@@ -35,7 +40,7 @@ $("#tramitar").click(function () {
         Swal.fire({
             icon: "error",
             text: "Error en los datos introducidos"
-          })
+        })
     } else {
         const Toast = Swal.mixin({
             toast: true,
@@ -47,7 +52,38 @@ $("#tramitar").click(function () {
                 toast.addEventListener('mouseenter', Swal.stopTimer)
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
             }, didClose: (toast) => {
-                window.location.href="inicio.php"
+                var formData = {
+                    nombre,
+                    apellidos,
+                    direccion,
+                    pais,
+                    codigoPostal,
+                    cardnumber,
+                    cardholder,
+                    cardmonth,
+                    cardyear,
+                    cardcvc
+                };
+                $.ajax({
+                    url: "http://localhost/ProyectoDAW/Tienda/agrega-venta.php",
+                    type: "POST",
+                    data: formData,
+                    success: function (response) {
+                        switch (response) {
+                            case "venta":
+                                window.location.href = "inicio.php"
+                                break;
+                            case "error":
+                                Swal.fire({
+                                    icon: "error",
+                                    text: "Ha habido un error procesando los datos"
+                                })
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                });
             }
         })
         Toast.fire({

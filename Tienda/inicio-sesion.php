@@ -35,8 +35,10 @@ if (isset($_POST['usuario_nombre'])) {
   
 
     if (!$flag) {
-        array_push($array_usuarios, $usuario_logueado);
-        $_SESSION['array_usuarios'] = $array_usuarios;
+        if (isset($usuario_logueado)) {
+            array_push($array_usuarios, $usuario_logueado);
+            $_SESSION['array_usuarios'] = $array_usuarios;
+        }
     }
 
     $_SESSION['usuario_logueado'] = $usuario_logueado;
