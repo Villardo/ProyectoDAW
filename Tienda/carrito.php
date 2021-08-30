@@ -1,25 +1,27 @@
+<?php include 'navbar.php' ?>
+<?php 
+
+// session_start();
+$usuario_logueado = $_SESSION['usuario_logueado'];
+
+if (isset($_GET['action'], $_GET['item']) && $_GET['action'] == 'remove') {
+    unset($usuario_logueado['carrito'][$_GET['item']]);
+    // header("Location:carrito.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Centro estético Carla María Villar Cuadrado - Mi carrito</title>
     <?php include 'librerias.php' ?>
 </head>
-
 <body>
     <?php include 'infobar.php' ?>
-    <?php include 'navbar.php' ?>
-
     <?php
-    $usuario_logueado = $_SESSION['usuario_logueado'];
-
-    if (isset($_GET['action'], $_GET['item']) && $_GET['action'] == 'remove') {
-        unset($usuario_logueado['carrito'][$_GET['item']]);
-        exit();
-    }
-
+   
     echo '<div class="row">';
         echo '<div class="col-md-12">';
             if (empty($usuario_logueado['carrito'])) { 
@@ -70,7 +72,7 @@
                         echo '<td>';
                             echo '<input type="number" class="cantidadProducto" data-item-id="'.$key.'" value="'.$item['producto_cantidad'].'" min="1">';
                         echo '</td>';
-                        echo '<td>';
+                        echo '<td class="precioproducto" id="total'.$key.'">';
                             echo $total.'€'; 
                         echo '</td>';
                     echo '</tr>';
@@ -80,12 +82,11 @@
                     echo '<td><button class="btn btn-danger btn-sm" id="vaciarCarrito">Vaciar carrito</button></td>';
                    
                     echo '<td></td>';
-                    echo '<td>';
-                        echo '<strong>';
+                    echo '<td id="totalitems" style="font-weight:bold">';
                             echo ($numeroItems == 1) ? $numeroItems . ' item' : $numeroItems . ' items'; 
-                        echo '</strong>';
                     echo '</td>';
-                    echo '<td><strong>'. $precioTotalProductos .'€'.'</strong></td>';
+                    echo '<td id="preciototal" style="font-weight:bold">
+                    '. $precioTotalProductos .'€'.'</td>';
                 echo '</tr>';
                 echo '</tr>';
                     
