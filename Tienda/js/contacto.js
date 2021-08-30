@@ -3,24 +3,23 @@ const problema = "Hola, quiero ponerme en contacto con usted porque ha ocurrido 
 const trabajo = "Hola, me pongo en contacto con usted porque me interesaría formar parte de su empresa";
 const otros = "Añada aquí un breve resumen de la razón por la que se pone en contacto";
 
-$(document).ready(function () {
-    $("#select_razon").change(function () {
-        switch ($("#select_razon").val()) {
-            case 1:
-                $("#txtarea").text(sugerencias);
-                break;
-            case 2:
-                $("#txtarea").text(problema);
-                break;
-            case 3:
-                $("#txtarea").text(trabajo);
-                break;
-            case 4:
-                $("#txtarea").text(otros);
-                break;
-            default:
-                break;
-        }
-    });
+$("#select_razon").change(function () {
+    switch ($("#select_razon").val()) {
+        case "1":
+            $("#txtarea").text(sugerencias);
+            break;
+        case "2":
+            $("#txtarea").text(problema);
+            break;
+        case "3":
+            $("#txtarea").text(trabajo);
+            break;
+        case "4":
+            $("#txtarea").text(otros);
+            break;
+        default:
+            break;
+    }
 });
+
 

@@ -49,7 +49,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="select">Razon:</label>
-                                <select class="form-control" name="contacto_razon" id="select_razon">
+                                <select class="target form-control" name="contacto_razon" id="select_razon">
                                     <option value="1" selected="selected">Sugerencias</option>
                                     <option value="2">Tengo un problema con un pedido</option>
                                     <option value="3">Quisiera trabajar con vosotros</option>
@@ -61,7 +61,7 @@
 
                     <div class="row">
                         <div class="col-12 pb-2">
-                            <textarea id="txtarea" class="form-control" name="contacto_texto" rows="4" cols="50" maxlength="200"></textarea>
+                            <textarea id="txtarea" class="form-control" name="contacto_texto" rows="4" cols="50" maxlength="200">Hola, me gustaria hacer una pequeña sugerencia: </textarea>
                         </div>
                     </div>
                     <div class="row">
