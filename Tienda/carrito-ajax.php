@@ -1,15 +1,14 @@
 <?php
 session_start();
 
-$usuario_logueado = $_SESSION['usuario_logueado'];
-
-
 if (isset($_POST['action']) && $_POST['action'] == 'actualizaCantidad') {
+    $usuario_logueado = $_SESSION['usuario_logueado'];
+
     $item = $_POST['item_id'];
     $itemCantidad = intval($_POST['item_cantidad']);
 
-    $itemPrecioTotal = round(floatval($usuario_logueado['carrito'][$item]['producto_precio']),2);
-    $total=round($itemCantidad * $itemPrecioTotal,2);
+    $itemPrecioTotal = round(floatval($usuario_logueado['carrito'][$item]['producto_precio']), 2);
+    $total = round($itemCantidad * $itemPrecioTotal, 2);
 
     for ($i = 0; $i < count($_SESSION['array_usuarios']); $i++) {
         if ($_SESSION['array_usuarios'][$i]['id'] == $_SESSION['usuario_logueado']['id']) {
@@ -17,9 +16,11 @@ if (isset($_POST['action']) && $_POST['action'] == 'actualizaCantidad') {
             $_SESSION['array_usuarios'][$i]['carrito'][$item]['producto_precio'] = $total;
         }
     }
+
     $usuario_logueado['carrito'][$item]['producto_cantidad'] = $itemCantidad;
     $usuario_logueado['carrito'][$item]['producto_precio'] = $total;
-    echo json_encode(['msg' => 'success',"total"=>$total]);
+
+    echo json_encode(['msg' => 'success', "total" => $total, "item" =>$item]);
     exit();
 }
 

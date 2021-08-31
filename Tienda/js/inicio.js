@@ -20,7 +20,6 @@ $('#carouselImagen').on('touchstart mousedown', function (event) {
         } else if (Math.floor(xClick - xMove) < -sensitivityInPx) {
             $(this).carousel('prev');
         }
-
     });
     $(this).on('touchend mouseover', function () {
         $(this).off('touchmove mousemove');

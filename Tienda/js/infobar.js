@@ -1,4 +1,4 @@
-//TODO Introducir valores en variables
+//TODO Introducir de alguna manera valores en variables.php
 
 let latitud = 42.2133932810003;
 let longitud = -8.692993569571495;

@@ -49,8 +49,6 @@ $("#tramitar").click(function () {
             timer: 1500,
             timerProgressBar: true,
             didOpen: (toast) => {
-                console.log("aaaaa")
-
                 var formData = {
                     nombre,
                     apellidos,
@@ -63,14 +61,11 @@ $("#tramitar").click(function () {
                     cardyear,
                     cardcvc
                 };
-
                 $.ajax({
                     url: "agrega-venta.php",
                     type: "POST",
                     data: formData,
                     success: function (response) {
-                        console.log(response);
-
                         switch (response) {
                             case "venta":
                                 window.location.href = "inicio.php"
@@ -87,7 +82,6 @@ $("#tramitar").click(function () {
                         }
                     }
                 });
-                console.log("assadadsdadadsa")
 
                 toast.addEventListener('mouseenter', Swal.stopTimer)
                 toast.addEventListener('mouseleave', Swal.resumeTimer)

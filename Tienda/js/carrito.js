@@ -15,7 +15,7 @@ function inicio() {
                 item_cantidad: cantidadActualizada
             },
             success: function (data) {
-                console.log(data);
+                
                 if (data.msg == 'success') {
                     let total = "#total" + itemAct;
                     let prCont = 0;

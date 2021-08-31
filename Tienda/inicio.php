@@ -12,21 +12,10 @@
     <?php include 'infobar.php' ?>
     <?php include 'navbar.php' ?>
 
-    <?php
-    // var_dump($_SESSION);
-    ?>
-
     <div class="container-fluid">
         <div class="row">
             <div id="carouselImagen" class="carousel slide col-12 pt-2 grab d-block w-100" data-ride="carousel">
-                <!-- <div id="carouselImagen" class="carousel slide col-12 pt-2 grab d-block w-100" data-ride="carousel" data-interval="false">
-                <div id="carousel-controls">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselImagen" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselImagen" data-slide-to="1"></li>
-                        <li data-target="#carouselImagen" data-slide-to="2"></li>
-                    </ol>
-                </div> -->
+                
                 <div class="carousel-inner img-fluid d-block w-100">
                     <div class="carousel-item active" data-interval="5000">
                         <img src="images/foto1.jpg" class="d-block w-100" alt="...">
@@ -37,14 +26,7 @@
                     <div class="carousel-item" data-interval="5000">
                         <img src="images/foto4.jpg" class="d-block w-100" alt="...">
                     </div>
-                    <a class="carousel-control-prev" href="#carouselImagen" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselImagen" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                    
                 </div>
             </div>
         </div>

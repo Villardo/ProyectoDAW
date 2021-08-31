@@ -1,4 +1,3 @@
-
 let mensajesError = [];
 
 //String valido de 3 a 16 caracteres
@@ -57,13 +56,12 @@ jQuery(function ($) {
       })
     } else {
       $.ajax({
-        url: "http://localhost/ProyectoDAW/Tienda/registrar-nuevo-usuario.php",
+        url: "registrar-nuevo-usuario.php",
         type: "POST",
         data: {
           nombre, email: emailForm, password1
         },
         success: function (response) {
-          console.log(response);
           switch (response) {
             case "sqlError":
               Swal.fire({
@@ -98,7 +96,6 @@ jQuery(function ($) {
               })
               break;
             default:
-              console.log("error");
               break;
           }
         },

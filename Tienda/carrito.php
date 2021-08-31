@@ -7,10 +7,11 @@
         <?php include 'librerias.php' ?>
     </head>
     <body>
-        <?php include 'infobar.php' ?>
-        <?php include 'navbar.php' ?>
+
+    <?php include 'infobar.php' ?>
+    <?php include 'navbar.php' ?>
+
     <?php
-    
     $usuario_logueado = $_SESSION['usuario_logueado'];
 
     if (!isset($usuario_logueado["carrito"]) || count($usuario_logueado["carrito"]) == 0) {
@@ -86,6 +87,7 @@
                     echo '</td>';
                     echo '<td id="preciototal" style="font-weight:bold">
                     '. $precioTotalProductos .'€'.'</td>';
+                    
                 echo '</tr>';
                 echo '</tr>';
                     

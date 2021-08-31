@@ -26,6 +26,7 @@
     echo '</h4>';
     echo '<ul class="list-group mb-3">';
 
+
     foreach ($_SESSION['usuario_logueado']['carrito'] as $key => $item) {
         echo '<li class="list-group-item d-flex justify-content-between lh-condensed">';
         echo '<div>';

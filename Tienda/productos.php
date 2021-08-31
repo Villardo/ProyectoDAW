@@ -24,8 +24,6 @@
         }
     }
 
-    var_dump($_SESSION);
-
     $numRegistros = 6;
     $pagina = 1;
 
