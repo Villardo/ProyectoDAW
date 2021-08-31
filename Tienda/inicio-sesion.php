@@ -32,7 +32,7 @@ if (isset($_POST['usuario_nombre'])) {
             $flag = true;
         }
     }
-  
+
 
     if (!$flag) {
         if (isset($usuario_logueado)) {
@@ -42,6 +42,14 @@ if (isset($_POST['usuario_nombre'])) {
     }
 
     $_SESSION['usuario_logueado'] = $usuario_logueado;
+
+    for ($i = 0; $i < count($_SESSION['array_usuarios']); $i++) {
+        if ($_SESSION['array_usuarios'][$i]['id'] == $_SESSION['usuario_logueado']['id']) {
+            $carrito_usuario_sesion = $_SESSION['array_usuarios'][$i]['carrito'];
+        }
+    }
+
+    $_SESSION['usuario_logueado']['carrito'] = $carrito_usuario_sesion;
 
     if (!($_SESSION['usuario_logueado']["id"] > 0 && isset($_SESSION['usuario_logueado']["id"]))) {
         $_SESSION["flag_login_fail"] = true;

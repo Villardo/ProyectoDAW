@@ -1,28 +1,27 @@
-<?php include 'navbar.php' ?>
-<?php 
-
-// session_start();
-$usuario_logueado = $_SESSION['usuario_logueado'];
-
-if (isset($_GET['action'], $_GET['item']) && $_GET['action'] == 'remove') {
-    unset($usuario_logueado['carrito'][$_GET['item']]);
-    // header("Location:carrito.php");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Centro estético Carla María Villar Cuadrado - Mi carrito</title>
-    <?php include 'librerias.php' ?>
-</head>
-<body>
-    <?php include 'infobar.php' ?>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Centro estético Carla María Villar Cuadrado - Mi carrito</title>
+        <?php include 'librerias.php' ?>
+    </head>
+    <body>
+        <?php include 'infobar.php' ?>
+        <?php include 'navbar.php' ?>
     <?php
-   
-    echo '<div class="row">';
+    
+    $usuario_logueado = $_SESSION['usuario_logueado'];
+
+    if (!isset($usuario_logueado["carrito"]) || count($usuario_logueado["carrito"]) == 0) {
+        unset($_SESSION['items_cantidad']);
+        unset($_SESSION['precio_total']);
+        unset($_SESSION['precio_final']);
+    }
+
+    var_dump($_SESSION);
+
+    echo '<div class="row" id="carrito_container">';
         echo '<div class="col-md-12">';
             if (empty($usuario_logueado['carrito'])) { 
             echo '<table class="table">';
@@ -61,9 +60,9 @@ if (isset($_GET['action'], $_GET['item']) && $_GET['action'] == 'remove') {
                         echo '<td>';
                             echo '<img src=" '.$item['producto_ruta'].'" class="rounded img-thumbnail mr-2" style="width:60px;">'. $item['producto_nombre'];
 
-                            echo '<a href="carrito.php?action=remove&item='.$key.'" class="text-danger">';
+                            echo '<button data-btn-remove-id="'.$key.'" href="carrito.php?action=remove&item='.$key.'" class="papelera text-danger">';
                                 echo '<i class="bi bi-trash-fill pl-3"></i>';
-                            echo '</a>';
+                            echo '</button>';
 
                         echo '</td>';
                         echo '<td>';

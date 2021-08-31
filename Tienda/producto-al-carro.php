@@ -3,6 +3,11 @@ session_start();
 
 require_once('conectar-db.php');
 
+if (!isset($_SESSION['usuario_logueado']['carrito'])) {
+    $_SESSION['usuario_logueado']['carrito'] = [];
+}
+
+$carrito_usuario_logueado = $_SESSION['usuario_logueado']['carrito'];
 $sql = "SELECT * FROM productos WHERE producto_id = " . $_POST['producto_id'];
 
 if (isset($_POST['agregar_producto'])) {
@@ -17,13 +22,23 @@ if (isset($_POST['agregar_producto'])) {
             'producto_cantidad' => $_POST['producto_cantidad']
         ];
 
-        if (in_array($arrayCarrito['producto_id'],$_SESSION['usuario_logueado']['carrito'])) {
-            $_SESSION['usuario_logueado']['carrito']['producto_cantidad']=$_SESSION['usuario_logueado']['carrito']['producto_cantidad']+$_POST['producto_cantidad'];
-        }else{
-            $_SESSION['usuario_logueado']['carrito'][] = $arrayCarrito;
+        for ($i = 0; $i < count($_SESSION['usuario_logueado']['carrito']); $i++) {
+            if ($arrayCarrito['producto_id'] == $_SESSION['usuario_logueado']['carrito'][$i]['producto_id']) {
+                $_SESSION['usuario_logueado']['carrito'][$i]['producto_cantidad'] =
+                    $_SESSION['usuario_logueado']['carrito'][$i]['producto_cantidad'] + $_POST['producto_cantidad'];
+                exit();
+            }
         }
-    }
+        
+        $_SESSION['usuario_logueado']['carrito'][] = $arrayCarrito;
 
+        for ($i = 0; $i < count($_SESSION['array_usuarios']); $i++) {
+            if ($_SESSION['array_usuarios'][$i]['id'] == $_SESSION['usuario_logueado']['id']) {
+                $_SESSION['array_usuarios'][$i]['carrito'][] = $arrayCarrito;
+            }
+        }
+
+    }
     $_SESSION['nuevo_producto'] = $_POST['producto_cantidad'];
 }
 
