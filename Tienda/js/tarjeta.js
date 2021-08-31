@@ -49,9 +49,8 @@ $("#tramitar").click(function () {
             timer: 1500,
             timerProgressBar: true,
             didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }, didClose: (toast) => {
+                console.log("aaaaa")
+
                 var formData = {
                     nombre,
                     apellidos,
@@ -64,11 +63,14 @@ $("#tramitar").click(function () {
                     cardyear,
                     cardcvc
                 };
+
                 $.ajax({
-                    url: "http://localhost/ProyectoDAW/Tienda/agrega-venta.php",
+                    url: "agrega-venta.php",
                     type: "POST",
                     data: formData,
                     success: function (response) {
+                        console.log(response);
+
                         switch (response) {
                             case "venta":
                                 window.location.href = "inicio.php"
@@ -80,10 +82,17 @@ $("#tramitar").click(function () {
                                 })
                                 break;
                             default:
+                                console.log(response);
                                 break;
                         }
                     }
                 });
+                console.log("assadadsdadadsa")
+
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }, didClose: (toast) => {
+                window.location("inicio.php")
             }
         })
         Toast.fire({

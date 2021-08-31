@@ -1,11 +1,15 @@
 <?php
-// CREATE USER IF NOT EXISTS 'cliente'@'localhost' IDENTIFIED BY 'cliente_password';
-// GRANT SELECT ON centro_estetica.productos TO 'cliente'@'localhost'
-// GRANT SELECT ON centro_estetica.servicios TO 'cliente'@'localhost'
-// GRANT INSERT ON centro_estetica.usuarios TO 'cliente'@'localhost'
-// GRANT SELECT ON centro_estetica.usuarios TO 'cliente'@'localhost'
-// GRANT SELECT ON centro_estetica.descuentos TO 'cliente'@'localhost'
-// GRANT INSERT ON centro_estetica.ventas TO 'cliente'@'localhost'
+//  CREATE USER IF NOT EXISTS 'cliente'@'localhost' IDENTIFIED BY 'cliente_password';
+//     GRANT SELECT ON centro_estetica.productos TO 'cliente'@'localhost';
+//     GRANT SELECT ON centro_estetica.servicios TO 'cliente'@'localhost';
+//     GRANT INSERT ON centro_estetica.usuarios TO 'cliente'@'localhost';
+//     GRANT SELECT ON centro_estetica.usuarios TO 'cliente'@'localhost';
+//     GRANT SELECT ON centro_estetica.descuentos TO 'cliente'@'localhost';
+//     GRANT INSERT ON centro_estetica.ventas TO 'cliente'@'localhost';
+//     GRANT SELECT ON centro_estetica.facturacion TO 'cliente'@'localhost';
+//     GRANT INSERT ON centro_estetica.facturacion TO 'cliente'@'localhost';
+//     GRANT SELECT ON centro_estetica.ventas TO 'cliente'@'localhost';
+//     GRANT INSERT ON centro_estetica.ventas TO 'cliente'@'localhost';
 
 
 // CREATE USER IF NOT EXISTS 'admin'@'localhost' IDENTIFIED BY 'admin_password';
