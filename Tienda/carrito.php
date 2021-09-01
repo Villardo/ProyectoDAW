@@ -12,7 +12,9 @@
     <?php include 'navbar.php' ?>
 
     <?php
-    $usuario_logueado = $_SESSION['usuario_logueado'];
+    if (isset($_SESSION['usuario_logueado'])) {
+        $usuario_logueado = $_SESSION['usuario_logueado'];
+    }
 
     if (!isset($usuario_logueado["carrito"]) || count($usuario_logueado["carrito"]) == 0) {
         unset($_SESSION['items_cantidad']);

@@ -15,6 +15,7 @@
     session_start();
 
     require_once('conectar-db.php');
+    
     $flagError = false;
 
     echo '<div class="container pt-5">';
@@ -59,6 +60,7 @@
     echo '<span class="text-success">';
 
     $precioFinal = $_SESSION['precio_total'];
+    
     $_SESSION['precio_final'] = $precioFinal;
 
     if (!$flagError) {

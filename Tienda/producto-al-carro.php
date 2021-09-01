@@ -24,12 +24,10 @@ if (isset($_POST['agregar_producto'])) {
 
         for ($i = 0; $i < count($_SESSION['usuario_logueado']['carrito']); $i++) {
             if ($arrayCarrito['producto_id'] == $_SESSION['usuario_logueado']['carrito'][$i]['producto_id']) {
-                $_SESSION['usuario_logueado']['carrito'][$i]['producto_cantidad'] =
-                    $_SESSION['usuario_logueado']['carrito'][$i]['producto_cantidad'] + $_POST['producto_cantidad'];
-                exit();
+                // $_SESSION['usuario_logueado']['carrito'][$i]['producto_cantidad'] = $_SESSION['usuario_logueado']['carrito'][$i]['producto_cantidad'] + intval($_POST['producto_cantidad']);
             }
         }
-        
+
         $_SESSION['usuario_logueado']['carrito'][] = $arrayCarrito;
 
         for ($i = 0; $i < count($_SESSION['array_usuarios']); $i++) {
@@ -37,7 +35,6 @@ if (isset($_POST['agregar_producto'])) {
                 $_SESSION['array_usuarios'][$i]['carrito'][] = $arrayCarrito;
             }
         }
-
     }
     $_SESSION['nuevo_producto'] = $_POST['producto_cantidad'];
 }
