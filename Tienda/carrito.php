@@ -20,8 +20,6 @@
         unset($_SESSION['precio_final']);
     }
 
-    var_dump($_SESSION);
-
     echo '<div class="row" id="carrito_container">';
         echo '<div class="col-md-12">';
             if (empty($usuario_logueado['carrito'])) { 

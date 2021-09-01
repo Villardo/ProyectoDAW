@@ -13,7 +13,7 @@
     <?php include 'navbar.php' ?>
     <?php
 
-    if (isset($_SESSION['usuario_logueado'])) {
+    if (isset($_SESSION['usuario_logueado']['id'])) {
         $arrayUsuarios = $_SESSION['array_usuarios'];
         $usuario_logueado = $_SESSION['usuario_logueado'];
         
