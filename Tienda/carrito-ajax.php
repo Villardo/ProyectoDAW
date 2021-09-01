@@ -19,6 +19,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'actualizaCantidad') {
 
     $usuario_logueado['carrito'][$item]['producto_cantidad'] = $itemCantidad;
     $usuario_logueado['carrito'][$item]['producto_precio'] = $total;
+    $_SESSION['usuario_logueado']=$usuario_logueado;
 
     echo json_encode(['msg' => 'success', "total" => $total, "item" =>$item]);
     exit();
